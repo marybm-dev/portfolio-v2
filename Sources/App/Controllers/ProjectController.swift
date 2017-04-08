@@ -5,6 +5,7 @@ final class ProjectController {
     
     func addRoutes(drop: Droplet) {
         drop.get("projects", handler: indexView)
+        drop.post("project", handler: addProject)
     }
     
     func indexView(request: Request) throws -> ResponseRepresentable {
@@ -14,4 +15,32 @@ final class ProjectController {
         ])
         return try drop.view.make("index", parameters)
     }
+    
+    func addProject(request: Request) throws -> ResponseRepresentable {
+        
+        guard let title = request.data["title"]?.string,
+            let description = request.data["description"]?.string,
+            let tech = request.data["tech"]?.string,
+            let type = request.data["type"]?.string else {
+                throw Abort.badRequest
+        }
+        
+        let image = request.data["image"]?.string
+        let video = request.data["video"]?.string
+        let link = request.data["link"]?.string
+        
+        var project = Project(title: title, description: description, tech: tech, type: type, image: image, video: video, link: link)
+        try project.save()
+        
+        return Response(redirect: "/projects")
+    }
 }
+
+
+//self.title = title
+//self.description = description
+//self.tech = tech
+//self.type = type
+//self.image = image
+//self.video = video
+//self.link = link

@@ -9,15 +9,17 @@ final class Project: Model {
     var title: String
     var description: String
     var tech: String
+    var type: String
     var image: String?
     var video: String?
     var link: String?
     
-    init(title: String, description: String, tech: String, image: String?, video: String?, link: String?) {
+    init(title: String, description: String, tech: String, type: String, image: String?, video: String?, link: String?) {
         self.id = nil
         self.title = title
         self.description = description
         self.tech = tech
+        self.type = type
         self.image = image
         self.video = video
         self.link = link
@@ -28,6 +30,7 @@ final class Project: Model {
         title = try node.extract("title")
         description = try node.extract("description")
         tech = try node.extract("tech")
+        type = try node.extract("type")
         image = try node.extract("image")
         video = try node.extract("video")
         link = try node.extract("link")
@@ -39,6 +42,7 @@ final class Project: Model {
             "title" : title,
             "description": description,
             "tech": tech,
+            "type": type,
             "image": image,
             "video": video,
             "link": link
@@ -51,6 +55,7 @@ final class Project: Model {
             users.string("title")
             users.string("description")
             users.string("tech")
+            users.string("type")
             users.string("image", optional: true)
             users.string("video", optional: true)
             users.string("link", optional: true)
