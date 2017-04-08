@@ -9,11 +9,11 @@
 
     <form action="/project" method="post">
         <div class="row">
-            <div class="three columns">
+            <div class="two columns">
                 <label>Title</label>
                 <input name="title" class="u-full-width" placeholder="Project's name"/>
             </div>
-            <div class="five columns">
+            <div class="four columns">
                 <label>Description</label>
                 <input name="description" class="u-full-width" placeholder="Description of the project" />
             </div>
@@ -28,6 +28,8 @@
             <div class="one column">
                 <label>Link</label>
                 <input name="link" class="u-full-width" />
+            </div>
+            <div class="two columns">
                 <input class="button-primary" type="submit"value="Save">
             </div>
         </div>
@@ -36,10 +38,10 @@
 
     #loop(projects, "project") {
         <div class="row">
-            <div class="three columns">
+            <div class="two columns">
                 <h5><span>#(project.title)</span></h5>
             </div>
-            <div class="five columns">
+            <div class="four columns">
                 <p><span>#(project.description)</span></p>
             </div>
             <div class="one column">
@@ -50,6 +52,11 @@
             </div>
             <div class="one column">
                 <a href="#(project.link)"><span>link</span></a>
+            </div>
+            <div class="two columns">
+                <form action="/project/#(project.id)/delete" method="post">
+                    <input type="submit" value="Delete"/>
+                </form>
             </div>
         </div>
     }

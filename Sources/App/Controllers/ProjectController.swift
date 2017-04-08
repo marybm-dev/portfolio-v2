@@ -6,6 +6,7 @@ final class ProjectController {
     func addRoutes(drop: Droplet) {
         drop.get("projects", handler: indexView)
         drop.post("project", handler: addProject)
+        drop.post("project", Project.self, "delete", handler: deleteProject)
     }
     
     func indexView(request: Request) throws -> ResponseRepresentable {
@@ -32,6 +33,11 @@ final class ProjectController {
         var project = Project(title: title, description: description, tech: tech, type: type, image: image, video: video, link: link)
         try project.save()
         
+        return Response(redirect: "/projects")
+    }
+    
+    func deleteProject(request: Request, project: Project) throws ->ResponseRepresentable {
+        try project.delete()
         return Response(redirect: "/projects")
     }
 }
