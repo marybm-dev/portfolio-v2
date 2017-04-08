@@ -1,7 +1,6 @@
 import Vapor
 import VaporPostgreSQL
 
-
 final class Project: Model {
     
     var id: Node?
@@ -9,18 +8,18 @@ final class Project: Model {
     
     var title: String
     var description: String
-    var techStack: String
-    var imagePath: String?
-    var videoPath: String?
-    var link: String?
+    var tech: String
+    var image: String
+    var video: String
+    var link: String
     
-    init(title: String, description: String, techStack: String, imagePath: String?, videoPath: String?, link: String?) {
+    init(title: String, description: String, tech: String, image: String, video: String, link: String) {
         self.id = nil
         self.title = title
         self.description = description
-        self.techStack = techStack
-        self.imagePath = imagePath
-        self.videoPath = videoPath
+        self.tech = tech
+        self.image = image
+        self.video = video
         self.link = link
     }
     
@@ -28,9 +27,9 @@ final class Project: Model {
         id = try node.extract("id")
         title = try node.extract("title")
         description = try node.extract("description")
-        techStack = try node.extract("techStack")
-        imagePath = try node.extract("imagePath")
-        videoPath = try node.extract("videoPath")
+        tech = try node.extract("tech")
+        image = try node.extract("image")
+        video = try node.extract("video")
         link = try node.extract("link")
     }
     
@@ -39,9 +38,9 @@ final class Project: Model {
             "id": id,
             "title" : title,
             "description": description,
-            "techStack": techStack,
-            "imagePath": imagePath,
-            "videoPath": videoPath,
+            "tech": tech,
+            "image": image,
+            "video": video,
             "link": link
         ])
     }
@@ -51,9 +50,9 @@ final class Project: Model {
             users.id()
             users.string("title")
             users.string("description")
-            users.string("techStack")
-            users.string("imagePath")
-            users.string("videoPath")
+            users.string("tech")
+            users.string("image")
+            users.string("video")
             users.string("link")
         }
     }
