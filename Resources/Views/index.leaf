@@ -1,0 +1,17 @@
+#extend("base")
+
+#export("body") {
+    #loop(projects, "project") {
+        <div class="row">
+            <div class="three columns">
+                <h5><span>#(project.title)</span></h5>
+            </div>
+            <div class="six columns">
+                <p><span>#(project.description)</span></p>
+            </div>
+            <div class="three columns">
+                <p><span>#(project.tech)</span></p>
+            </div>
+        </div>
+    }
+}
