@@ -20,25 +20,13 @@ drop.get { req in
     ])
 }
 
-drop.get("model") { request in
-    let project = Project(title: "HiveMine",
-                          description: "Blah",
-                          tech: TechStack.iOS.rawValue,
-                          image: "",
-                          video: "",
-                          link: "")
-    
-    
-    return try project.makeJSON()
-}
-
 drop.get("test") { request in
     var project = Project(title: "HiveMine",
                           description: "Blah",
                           tech: "iOS",
-                          image: "some image path",
-                          video: "some video path",
-                          link: "some link")
+                          image: nil,
+                          video: nil,
+                          link: nil)
     try project.save()
     return try JSON(node: Project.all().makeNode())
 }

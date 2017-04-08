@@ -9,11 +9,11 @@ final class Project: Model {
     var title: String
     var description: String
     var tech: String
-    var image: String
-    var video: String
-    var link: String
+    var image: String?
+    var video: String?
+    var link: String?
     
-    init(title: String, description: String, tech: String, image: String, video: String, link: String) {
+    init(title: String, description: String, tech: String, image: String?, video: String?, link: String?) {
         self.id = nil
         self.title = title
         self.description = description
@@ -51,9 +51,9 @@ final class Project: Model {
             users.string("title")
             users.string("description")
             users.string("tech")
-            users.string("image")
-            users.string("video")
-            users.string("link")
+            users.string("image", optional: true)
+            users.string("video", optional: true)
+            users.string("link", optional: true)
         }
     }
     
