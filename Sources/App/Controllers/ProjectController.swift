@@ -41,12 +41,3 @@ final class ProjectController {
         return Response(redirect: "/projects")
     }
 }
-
-
-//self.title = title
-//self.description = description
-//self.tech = tech
-//self.type = type
-//self.image = image
-//self.video = video
-//self.link = link
