@@ -10,6 +10,7 @@ import Vapor
 import HTTP
 import Turnstile
 import Auth
+import Sessions
 
 
 /**
@@ -18,18 +19,25 @@ import Auth
  */
 class BasicAuthMiddleware: Middleware {
     func respond(to request: Request, chainingTo next: Responder) throws -> Response {
-        var id = ""
-        var secret = ""
-        
-        if let header = request.auth.header {
-            let components = header.header.components(separatedBy: ":")
-            id = components[0]
-            secret = components[1]
+        if let id = try request.session().data["api_key"]?.string,
+            let secret = try request.session().data["api_secret"]?.string {
+            
+            let api_Key = APIKey(id: id, secret: secret)
+            try? request.auth.login(api_Key, persist: true)
+            
         }
+//        
+//        
+//        if let header = request.auth.header {
+//            let components = header.header.components(separatedBy: ":")
+//            if components.count == 2 {
+//                let id = components[0]
+//                let secret = components[1]
+//                let api_Key = APIKey(id: id, secret: secret)
+//                try? request.auth.login(api_Key, persist: true)
+//            }
+//        }
 
-        let api_Key = APIKey(id: id, secret: secret)
-        try? request.auth.login(api_Key, persist: false)
-        
         return try next.respond(to: request)
     }
 }

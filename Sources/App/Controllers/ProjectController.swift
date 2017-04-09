@@ -18,6 +18,14 @@ final class ProjectController {
         return try drop.view.make("index", parameters)
     }
     
+    func adminIndexView(request: Request) throws -> ResponseRepresentable {
+        let projects = try Project.all().makeNode()
+        let parameters = try Node(node: [
+            "projects": projects,
+            ])
+        return try drop.view.make("admin-index", parameters)
+    }
+    
     func addProject(request: Request) throws -> ResponseRepresentable {
         
         guard let title = request.data["title"]?.string,

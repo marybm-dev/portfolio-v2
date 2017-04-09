@@ -1,0 +1,43 @@
+#extend("base")
+
+#export("body") {
+    <div class="container">
+        <div class="row">
+            <div class="u-full-width">
+                <h4>Login</h4>
+            </div>
+        </div>
+
+        <form action="/admin/login" method="post">
+            <div class="row">
+                <div class="two columns">
+                </div>
+                <div class="eight columns">
+                    <label>Username</label>
+                    <input name="username" type="text" class="u-full-width" />
+                </div>
+                <div class="two columns">
+                </div>
+            </div>
+            <div class="row">
+                <div class="two columns">
+                </div>
+                <div class="eight columns">
+                    <label>Password</label>
+                    <input name="password" type="password" class="u-full-width" />
+                </div>
+                <div class="two columns">
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns">
+                </div>
+                <div class="three columns">
+                    <input class="button-primary u-full-width" type="submit" value="Login">
+                </div>
+                <div class="three columns">
+                </div>
+            </div>
+        </form>
+    </div>
+}
