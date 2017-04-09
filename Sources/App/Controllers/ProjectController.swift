@@ -1,5 +1,6 @@
 import Vapor
 import HTTP
+import Auth
 
 final class ProjectController {
     
