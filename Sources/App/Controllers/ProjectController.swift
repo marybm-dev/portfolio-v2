@@ -6,6 +6,7 @@ final class ProjectController {
     
     func addRoutes(drop: Droplet) {
         drop.get("projects", handler: indexView)
+        drop.get("test", handler: gridView)
         drop.post("project", handler: addProject)
         drop.post("project", Project.self, "delete", handler: deleteProject)
     }
@@ -16,6 +17,15 @@ final class ProjectController {
                 "projects": projects,
         ])
         return try drop.view.make("index", parameters)
+    }
+    
+    func gridView(request: Request) throws -> ResponseRepresentable {
+//        let projects = try Project.query().filter("type", "Web").all().makeNode()
+        let projects = try Project.all().makeNode()
+        let parameters = try Node(node: [
+            "projects": projects,
+            ])
+        return try drop.view.make("grid", parameters)
     }
     
     func adminIndexView(request: Request) throws -> ResponseRepresentable {
