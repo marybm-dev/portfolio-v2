@@ -2,7 +2,7 @@ import Vapor
 import VaporPostgreSQL
 import Auth
 import Sessions
-
+import Fluent
 
 let drop = Droplet()
 
@@ -14,6 +14,9 @@ let sessions = SessionsMiddleware(sessions: memory)
 try drop.addProvider(VaporPostgreSQL.Provider)
 drop.preparations += Project.self
 drop.preparations += User.self
+drop.preparations += Tag.self
+drop.preparations += Pivot<Project, Tag>.self
+
 drop.middleware += AuthMiddleware<User>()
 drop.middleware += TrustProxyMiddleware()
 drop.middleware += sessions

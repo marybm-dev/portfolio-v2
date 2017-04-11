@@ -1,5 +1,6 @@
 import Vapor
 import VaporPostgreSQL
+import Fluent
 
 final class Project: Model {
     
@@ -8,17 +9,15 @@ final class Project: Model {
     
     var title: String
     var description: String
-    var tech: String
     var type: String
     var image: String?
     var video: String?
     var link: String?
     
-    init(title: String, description: String, tech: String, type: String, image: String?, video: String?, link: String?) {
+    init(title: String, description: String, type: String, image: String?, video: String?, link: String?) {
         self.id = nil
         self.title = title
         self.description = description
-        self.tech = tech
         self.type = type
         self.image = image
         self.video = video
@@ -29,7 +28,6 @@ final class Project: Model {
         id = try node.extract("id")
         title = try node.extract("title")
         description = try node.extract("description")
-        tech = try node.extract("tech")
         type = try node.extract("type")
         image = try node.extract("image")
         video = try node.extract("video")
@@ -41,7 +39,6 @@ final class Project: Model {
             "id": id,
             "title" : title,
             "description": description,
-            "tech": tech,
             "type": type,
             "image": image,
             "video": video,
@@ -54,7 +51,6 @@ final class Project: Model {
             users.id()
             users.string("title")
             users.string("description")
-            users.string("tech")
             users.string("type")
             users.string("image", optional: true)
             users.string("video", optional: true)
@@ -64,6 +60,13 @@ final class Project: Model {
     
     static func revert(_ database: Database) throws {
         try database.delete("projects")
+    }
+}
+
+extension Project {
+    func tags() throws -> [Tag] {
+        let tags: Siblings<Tag> = try siblings()
+        return try tags.all()
     }
 }
 
