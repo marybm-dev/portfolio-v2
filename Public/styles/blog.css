@@ -127,17 +127,29 @@ h3 {
     background: #999;
     font-size: 80%;
 }
+    .post-category-platform {
+        background: #e77349;
+    }
+    .post-category-db {
+        background: #e7ca40;
+    }
+    .post-category-web {
+        background: #79e77f;
+    }
     .post-category-design {
         background: #5aba59;
     }
-    .post-category-pure {
+    .post-category-markup {
         background: #4d85d1;
     }
-    .post-category-yui {
+    .post-category-tools {
         background: #8156a7;
     }
     .post-category-js {
         background: #df2d4f;
+    }
+    .post-category-testing {
+        background: #9ddce7;
     }
 
 .post-images {
@@ -169,6 +181,10 @@ h3 {
     width: 100%;
     background: lightgray;
     text-align: center;
+}
+
+.footer-list {
+    padding-left: 0;
 }
 
 .footer-social-link {

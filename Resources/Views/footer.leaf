@@ -1,0 +1,15 @@
+<footer>
+    <div class="pure-menu pure-menu-horizontal footer-menu" >
+        <ul class="footer-list">
+            <li class="pure-menu-item"><a href="https://www.linkedin.com/in/devmarymartinez/" class="footer-social-link">
+                <img width="36" height="36" src="/images/linkedin.png"></a>
+            </li>
+            <li class="pure-menu-item"><a href="https://github.com/mlmc03" class="footer-social-link">
+                <img width="36" height="36" src="/images/github.png"></a>
+            </li>
+            <li class="pure-menu-item"><a href="mailto:mlmartinez85@gmail.com" class="footer-social-link">
+                <img width="36" height="36" src="/images/email.png"></a>
+            </li>
+        </ul>
+    </div>
+</footer>
