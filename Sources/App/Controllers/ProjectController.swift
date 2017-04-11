@@ -27,7 +27,6 @@ final class ProjectController {
     func create(request: Request) throws -> ResponseRepresentable {
         guard let title = request.data["title"]?.string,
             let description = request.data["description"]?.string,
-            let tech = request.data["tech"]?.string,
             let type = request.data["type"]?.string else {
                 throw Abort.badRequest
         }
@@ -36,7 +35,7 @@ final class ProjectController {
         let video = request.data["video"]?.string
         let link = request.data["link"]?.string
         
-        var project = Project(title: title, description: description, tech: tech, type: type, image: image, video: video, link: link)
+        var project = Project(title: title, description: description, type: type, image: image, video: video, link: link)
         try project.save()
         
         return Response(redirect: "/projects")
