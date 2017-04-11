@@ -21,6 +21,9 @@ h3 {
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
 }
 
 #layout {
@@ -159,6 +162,19 @@ h3 {
     background: none;
 }
 
+.footer-menu {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background: lightgray;
+    text-align: center;
+}
+
+.footer-social-link {
+    padding: 0 .5em;
+}
+
 @media (min-width: 48em) {
     .content {
         padding: 2em 3em 0;
@@ -166,7 +182,7 @@ h3 {
     }
 
     .header {
-        margin: 80% 2em 0;
+        margin: 30% 2em 0;
         text-align: right;
     }
 
