@@ -6,7 +6,9 @@ import Fluent
 final class ProjectController {
     
     func addRoutes(drop: Droplet) {
-        drop.get("test", handler: gridView)
+        let portfolio = drop.grouped("portfolio")
+        portfolio.get(handler: gridView)
+        portfolio.get(String.self, handler: filteredProjects)
         
         let basic = drop.grouped("projects")
         basic.get(handler: index)
@@ -54,7 +56,6 @@ final class ProjectController {
     
     // Public facing routes
     func gridView(request: Request) throws -> ResponseRepresentable {
-        //        let projects = try Project.query().filter("type", "Web").all().makeNode()
         let projects = try Project.all().makeNode(context: ProjectContext.all)
         
         let parameters = try Node(node: [
@@ -63,6 +64,15 @@ final class ProjectController {
         return try drop.view.make("grid", parameters)
     }
     
+    func filteredProjects(request: Request, type: String) throws -> ResponseRepresentable {
+        let projects = try Project.query().filter("type", type).all().makeNode(context: ProjectContext.all)
+        //let projects = try Project.all().makeNode(context: ProjectContext.all)
+        
+        let parameters = try Node(node: [
+            "projects": projects,
+            ])
+        return try drop.view.make("grid", parameters)
+    }
     
     // Private facing routes
     func adminIndexView(request: Request) throws -> ResponseRepresentable {
