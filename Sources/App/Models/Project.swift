@@ -52,6 +52,11 @@ final class Project: Model {
                 node["tags"] = try allTags.makeNode()
             }
             
+            let allTypes = try types()
+            if allTypes.count > 0 {
+                node["types"] = try allTypes.makeNode()
+            }
+            
         default:
             break
         }
@@ -82,13 +87,9 @@ extension Project {
         return try tags.all()
     }
     
-    
-    // TODO come back to this
-    func getProjectWithTags() throws -> Node {
-        return try Node(node: [
-            "id" : self.id,
-            "tags" : self.tags().makeNode()
-        ])
+    func types() throws -> [Type] {
+        let types: Siblings<Type> = try siblings()
+        return try types.all()
     }
 }
 

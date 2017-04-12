@@ -15,7 +15,9 @@ try drop.addProvider(VaporPostgreSQL.Provider)
 drop.preparations += Project.self
 drop.preparations += User.self
 drop.preparations += Tag.self
+drop.preparations += Type.self
 drop.preparations += Pivot<Project, Tag>.self
+drop.preparations += Pivot<Project, Type>.self
 
 drop.middleware += AuthMiddleware<User>()
 drop.middleware += TrustProxyMiddleware()
@@ -38,6 +40,9 @@ projectController.addRoutes(drop: drop)
 
 let tagController = TagController()
 tagController.addRoutes(drop: drop)
+
+let typeController = TypeController()
+typeController.addRoutes(drop: drop)
 
 
 // Add admin routes

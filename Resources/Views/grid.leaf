@@ -34,9 +34,10 @@
                             </div>
                             
                             <header class="post-header">
-                                <img width="36" height="36" class="post-type" src="/images/Android.png">
-                                <img width="36" height="36" class="post-type" src="/images/iOS.png">
-                                <img width="36" height="36" class="post-type" src="/images/Swift.png">
+                                #loop(project.types, "type") {
+                                    <img width="36" height="36" class="post-type" src="/images/#(type.name).png">
+                                }
+
                                 <h2 class="post-title">#(project.title)</h2>
                                 <p class="post-meta">
                                     <a href="http://yuilibrary.com" >#(project.type)</a> app

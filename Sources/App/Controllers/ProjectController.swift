@@ -12,7 +12,8 @@ final class ProjectController {
         basic.get(handler: index)
         basic.post(handler: create)
         basic.delete(Project.self, handler: delete)
-        basic.post(Project.self, "join", Tag.self, handler: joinTag)
+        basic.post(Project.self, "tags", Tag.self, handler: joinTag)
+        basic.post(Project.self, "types", Type.self, handler: joinType)
         basic.get(Project.self, "tags", handler: tagsIndex)
         basic.get(Project.self, handler: show)
     }
@@ -74,6 +75,12 @@ final class ProjectController {
 
     func joinTag(request: Request, project: Project, tag: Tag) throws -> ResponseRepresentable {
         var pivot = Pivot<Project, Tag>(project, tag)
+        try pivot.save()
+        return project
+    }
+    
+    func joinType(request: Request, project: Project, type: Type) throws -> ResponseRepresentable {
+        var pivot = Pivot<Project, Type>(project, type)
         try pivot.save()
         return project
     }
