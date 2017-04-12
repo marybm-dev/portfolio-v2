@@ -14,6 +14,7 @@ final class ProjectController {
         basic.delete(Project.self, handler: delete)
         basic.post(Project.self, "join", Tag.self, handler: joinTag)
         basic.get(Project.self, "tags", handler: tagsIndex)
+        basic.get(Project.self, handler: show)
     }
     
     func index(request: Request) throws -> ResponseRepresentable {
@@ -41,6 +42,10 @@ final class ProjectController {
         return Response(redirect: "/projects")
     }
     
+    func show(request: Request, project: Project) throws -> ResponseRepresentable {
+        return project
+    }
+    
     func delete(request: Request, project: Project) throws ->ResponseRepresentable {
         try project.delete()
         return Response(redirect: "/projects")
@@ -49,7 +54,8 @@ final class ProjectController {
     // Public facing routes
     func gridView(request: Request) throws -> ResponseRepresentable {
         //        let projects = try Project.query().filter("type", "Web").all().makeNode()
-        let projects = try Project.all().makeNode()
+        let projects = try Project.all().makeNode(context: ProjectContext.all)
+        
         let parameters = try Node(node: [
             "projects": projects,
             ])

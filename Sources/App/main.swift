@@ -32,9 +32,13 @@ drop.get { req in
         ])
 }
 
-// Add public Project routes
+// Add public routes
 let projectController = ProjectController()
 projectController.addRoutes(drop: drop)
+
+let tagController = TagController()
+tagController.addRoutes(drop: drop)
+
 
 // Add admin routes
 drop.group("admin") { admin in

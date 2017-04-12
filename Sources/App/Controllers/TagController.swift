@@ -4,7 +4,7 @@ import HTTP
 final class TagController {
     
     func addRoutes(drop: Droplet) {
-        let basic = drop.grouped("groups")
+        let basic = drop.grouped("tags")
         basic.get(handler: index)
         basic.post(handler: create)
         basic.delete(Tag.self, handler: delete)
@@ -16,7 +16,12 @@ final class TagController {
     }
     
     func create(request: Request) throws -> ResponseRepresentable {
-        var tag = try request.tag()
+        guard let type = request.data["type"]?.string,
+            let name = request.data["name"]?.string else {
+                throw Abort.badRequest
+        }
+
+        var tag = Tag(type: type, name: name)
         try tag.save()
         return tag
     }

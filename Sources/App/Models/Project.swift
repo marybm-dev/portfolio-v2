@@ -35,15 +35,28 @@ final class Project: Model {
     }
     
     func makeNode(context: Context) throws -> Node {
-        return try Node(node: [
-            "id": id,
-            "title" : title,
-            "description": description,
-            "type": type,
-            "image": image,
-            "video": video,
-            "link": link
-        ])
+        
+        var node: [String: Node]  = [:]
+        node["id"] = id
+        node["title"] = title.makeNode()
+        node["description"] = description.makeNode()
+        node["type"] = type.makeNode()
+        node["image"] = image?.makeNode()
+        node["video"] = video?.makeNode()
+        node["link"] = link?.makeNode()
+        
+        switch context {
+        case ProjectContext.all:
+            let allTags = try tags()
+            if allTags.count > 0 {
+                node["tags"] = try allTags.makeNode()
+            }
+            
+        default:
+            break
+        }
+        
+        return try node.makeNode()
     }
     
     static func prepare(_ database: Database) throws {
@@ -68,6 +81,19 @@ extension Project {
         let tags: Siblings<Tag> = try siblings()
         return try tags.all()
     }
+    
+    
+    // TODO come back to this
+    func getProjectWithTags() throws -> Node {
+        return try Node(node: [
+            "id" : self.id,
+            "tags" : self.tags().makeNode()
+        ])
+    }
+}
+
+public enum ProjectContext: Context {
+    case all
 }
 
 enum TechStack: String {

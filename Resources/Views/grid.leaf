@@ -38,12 +38,11 @@
                                 <img width="36" height="36" class="post-type" src="/images/iOS.png">
                                 <img width="36" height="36" class="post-type" src="/images/Swift.png">
                                 <h2 class="post-title">#(project.title)</h2>
-                                
                                 <p class="post-meta">
                                     <a href="http://yuilibrary.com" >#(project.type)</a> app
-                                    <a class="post-category post-category-design" >#(project.tech)</a>
-                                    <a class="post-category post-category-pure" >Pure</a>
-                                    <a class="post-category post-category-pure" href="#(project.link)">Link</a>
+                                    #loop(project.tags, "tag") {
+                                        <a class="post-category post-category-#(tag.type)" >#(tag.name)</a>
+                                    }
                                 </p>
                             </header>
                             
