@@ -7,7 +7,7 @@ final class ProjectController {
     
     func addRoutes(drop: Droplet) {
         let portfolio = drop.grouped("portfolio")
-        portfolio.get(handler: gridView)
+        portfolio.get(handler: projects)
         portfolio.get(String.self, handler: filteredProjects)
         
         let basic = drop.grouped("projects")
@@ -55,13 +55,13 @@ final class ProjectController {
     }
     
     // Public facing routes
-    func gridView(request: Request) throws -> ResponseRepresentable {
+    func projects(request: Request) throws -> ResponseRepresentable {
         let projects = try Project.all().makeNode(context: ProjectContext.all)
         
         let parameters = try Node(node: [
             "projects": projects,
             ])
-        return try drop.view.make("grid", parameters)
+        return try drop.view.make("portfolio", parameters)
     }
     
     func filteredProjects(request: Request, type: String) throws -> ResponseRepresentable {
@@ -71,7 +71,7 @@ final class ProjectController {
         let parameters = try Node(node: [
             "projects": projects,
             ])
-        return try drop.view.make("grid", parameters)
+        return try drop.view.make("portfolio", parameters)
     }
     
     // Private facing routes

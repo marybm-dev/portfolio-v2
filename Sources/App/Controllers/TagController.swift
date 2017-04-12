@@ -32,9 +32,21 @@ final class TagController {
     }
     
     func projectsIndex(request: Request, tag: Tag) throws -> ResponseRepresentable {
-        let projects = try tag.projects()
-        return try JSON(node: projects.makeNode())
+        let projects = try tag.projects().makeNode(context: ProjectContext.all)
+        
+        let parameters = try Node(node: [
+            "projects": projects,
+            ])
+        
+        return try drop.view.make("portfolio", parameters)
     }
+    
+//    func projectsIndex(request: Request, tag: Tag) throws -> ResponseRepresentable {
+//        let projects = try tag.projects()
+//        return try JSON(node: projects.makeNode())
+//    }
+//    
+    
 }
 
 extension Request {

@@ -31,9 +31,20 @@ final class TypeController {
     }
     
     func projectsIndex(request: Request, type: Type) throws -> ResponseRepresentable {
-        let projects = try type.projects()
-        return try JSON(node: projects.makeNode())
+        let projects = try type.projects().makeNode(context: ProjectContext.all)
+        let parameters = try Node(node: [
+            "projects": projects,
+            ])
+        
+        return try drop.view.make("portfolio", parameters)
     }
+    
+//    func projectsIndex(request: Request, type: Type) throws -> ResponseRepresentable {
+//        let projects = try type.projects()
+//        return try JSON(node: projects.makeNode())
+//    }
+//    
+
 }
 
 extension Request {
