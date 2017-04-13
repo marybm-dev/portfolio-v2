@@ -1,4 +1,4 @@
-#extend("base")
+#extend("private")
 
 #export("body") {
     <div class="container">
