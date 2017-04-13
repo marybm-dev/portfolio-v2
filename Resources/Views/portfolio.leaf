@@ -48,7 +48,6 @@
                             </header>
                             
                             <div class="post-description">
-                                <!-- project description -->
                                 <p>#(project.description)</p>
                             </div>
                         </section>

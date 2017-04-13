@@ -16,7 +16,6 @@ final class ProjectController {
         basic.post(Project.self, "tags", Tag.self, handler: joinTag)
         basic.post(Project.self, "types", Type.self, handler: joinType)
         basic.get(Project.self, "tags", handler: tagsIndex)
-        basic.get(Project.self, handler: show)
     }
     
     func index(request: Request) throws -> ResponseRepresentable {
@@ -49,7 +48,17 @@ final class ProjectController {
     }
     
     func show(request: Request, project: Project) throws -> ResponseRepresentable {
-        return project
+        let parameters = try Node(node: [
+            "project": project,
+            ])
+        return try drop.view.make("show", parameters)
+    }
+    
+    func edit(request: Request, project: Project) throws -> ResponseRepresentable {
+        let parameters = try Node(node: [
+            "project": project,
+            ])
+        return try drop.view.make("edit", parameters)
     }
     
     func delete(request: Request, project: Project) throws ->ResponseRepresentable {

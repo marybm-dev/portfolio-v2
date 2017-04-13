@@ -1,0 +1,53 @@
+#extend("private")
+
+#export("body") {
+<div class="container">
+    <div class="row">
+        <br><br>
+        <div class="u-full-width">
+        <h4>Add New Project</h4>
+    </div>
+
+    <div class="row">
+        <div class="eight columns">
+            <label>Title</label>
+            #(project.title)
+        </div>
+        <div class="four columns">
+            <label>Type</label>
+            #(project.type)
+        </div>
+    </div>
+    
+    <div class="row">
+        <label>Description</label>
+        #(project.description)
+    </div>
+    
+    <div class="row">
+        <label>Image</label>
+        #if(project.image) {
+            <a href="#(project.image)">Image</a>
+        }
+    </div>
+    
+    <div class="row">
+        <label>Video</label>
+        #if(project.video) {
+            <a href="#(project.video)">Video</a>
+        }
+    </div>
+    
+    <div class="row">
+        <label>Link</label>
+        #if(project.link) {
+            <a href="#(project.link)">Video</a>
+        }
+    </div>
+    
+    <a href="/admin/projects/#(project.id)/edit">
+        <button value="Edit">Edit</button>
+    </a>
+
+</div>
+}

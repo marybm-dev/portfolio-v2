@@ -5,8 +5,6 @@ import Sessions
 import Fluent
 
 let drop = Droplet()
-
-// Enable Sessions
 let memory = MemorySessions()
 let sessions = SessionsMiddleware(sessions: memory)
 
@@ -25,7 +23,6 @@ drop.middleware += sessions
 
 // ** FOR DEVELOPMENT ONLY ** Disable Cache
 (drop.view as? LeafRenderer)?.stem.cache = nil
-
 
 // Root route
 drop.get { req in
@@ -64,24 +61,11 @@ drop.group("admin") { admin in
         let projects = secured.grouped("projects")
         projects.get(handler: projectController.index)
         projects.get("new", handler: projectController.new)
+        projects.get(Project.self, "edit", handler: projectController.edit)
+        projects.get(Project.self, handler: projectController.show)
         projects.post(handler: projectController.create)
         projects.post(Project.self, "delete", handler: projectController.delete)
     }
-}
-
-
-
-// Sample routes for filtering Projects
-drop.get("mobile") { request in
-    return try JSON(node: Project.query().filter("type", "Mobile").all().makeNode())
-}
-
-drop.get("web") { request in
-    return try JSON(node: Project.query().filter("type", "Web").all().makeNode())
-}
-
-drop.get("not-web") { request in
-    return try JSON(node: Project.query().filter("type", .notEquals, "Web").all().makeNode())
 }
 
 drop.run()

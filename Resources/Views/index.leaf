@@ -35,7 +35,9 @@
     #loop(projects, "project") {
         <div class="row">
             <div class="two columns">
-                <h5><span>#(project.title)</span></h5>
+                <a href="/admin/projects/#(project.id)">
+                    <h5><span>#(project.title)</span></h5>
+                </a>
             </div>
             <div class="four columns">
                 <p><span>#(project.description)</span></p>
