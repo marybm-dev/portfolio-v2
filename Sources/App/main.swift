@@ -47,25 +47,25 @@ typeController.addRoutes(drop: drop)
 
 // Add admin routes
 drop.group("admin") { admin in
+    // Authentication
     let usersController = UsersController()
-    
-    // Registration
     admin.post("register", handler: usersController.register)
-    
-    // Log In
+    admin.post("login", handler: usersController.login)
+    admin.post("logout", handler: usersController.logout)
     admin.get("login") { request in
         return  try drop.view.make("login")
     }
-    admin.post("login", handler: usersController.login)
-    
-    // Log Out
-    admin.post("logout", handler: usersController.logout)
     
     // Secured Endpoints
     let protect = ProtectMiddleware(error: Abort.custom(status: .unauthorized, message: "Unauthorized"))
     admin.group(BasicAuthMiddleware(), protect) { secured in
         secured.get("me", handler: usersController.me)
-        secured.get("projects", handler: projectController.adminIndexView)
+        
+        let projects = secured.grouped("projects")
+        projects.get(handler: projectController.index)
+        projects.get("new", handler: projectController.new)
+        projects.post(handler: projectController.create)
+        projects.post(Project.self, "delete", handler: projectController.delete)
     }
 }
 

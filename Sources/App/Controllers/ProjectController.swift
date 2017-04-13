@@ -6,14 +6,13 @@ import Fluent
 final class ProjectController {
     
     func addRoutes(drop: Droplet) {
+        // portfolio routes
         let portfolio = drop.grouped("portfolio")
         portfolio.get(handler: projects)
         portfolio.get(String.self, handler: filteredProjects)
         
+        // api routes
         let basic = drop.grouped("projects")
-        basic.get(handler: index)
-        basic.post(handler: create)
-        basic.delete(Project.self, handler: delete)
         basic.post(Project.self, "tags", Tag.self, handler: joinTag)
         basic.post(Project.self, "types", Type.self, handler: joinType)
         basic.get(Project.self, "tags", handler: tagsIndex)
@@ -28,6 +27,10 @@ final class ProjectController {
         return try drop.view.make("index", parameters)
     }
 
+    func new(request: Request) throws -> ResponseRepresentable {
+        return try drop.view.make("create")
+    }
+    
     func create(request: Request) throws -> ResponseRepresentable {
         guard let title = request.data["title"]?.string,
             let description = request.data["description"]?.string,
@@ -42,7 +45,7 @@ final class ProjectController {
         var project = Project(title: title, description: description, type: type, image: image, video: video, link: link)
         try project.save()
         
-        return Response(redirect: "/projects")
+        return Response(redirect: "/admin/projects")
     }
     
     func show(request: Request, project: Project) throws -> ResponseRepresentable {
@@ -51,10 +54,15 @@ final class ProjectController {
     
     func delete(request: Request, project: Project) throws ->ResponseRepresentable {
         try project.delete()
-        return Response(redirect: "/projects")
+        return Response(redirect: "/admin/projects")
     }
+
+}
+
+
+// Public Portfolio
+extension ProjectController {
     
-    // Public facing routes
     func projects(request: Request) throws -> ResponseRepresentable {
         let projects = try Project.all().makeNode(context: ProjectContext.all)
         
@@ -74,15 +82,12 @@ final class ProjectController {
         return try drop.view.make("portfolio", parameters)
     }
     
-    // Private facing routes
-    func adminIndexView(request: Request) throws -> ResponseRepresentable {
-        let projects = try Project.all().makeNode()
-        let parameters = try Node(node: [
-            "projects": projects,
-            ])
-        return try drop.view.make("admin-index", parameters)
-    }
+}
 
+
+// API Routes {
+extension ProjectController {
+    
     func joinTag(request: Request, project: Project, tag: Tag) throws -> ResponseRepresentable {
         var pivot = Pivot<Project, Tag>(project, tag)
         try pivot.save()
@@ -99,4 +104,5 @@ final class ProjectController {
         let tags = try project.tags()
         return try JSON(node: tags.makeNode())
     }
+    
 }

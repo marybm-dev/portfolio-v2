@@ -1,36 +1,36 @@
 #extend("base")
 
 #export("body") {
+<div class="container">
     <div class="row">
+        <br><br>
         <div class="u-full-width">
-            <h4>Add New Project</h4>
+            <h4>Projects</h4>
         </div>
     </div>
 
-    <form action="/projects" method="post">
-        <div class="row">
-            <div class="two columns">
-                <label>Title</label>
-                <input name="title" class="u-full-width" placeholder="Project's name"/>
-            </div>
-            <div class="four columns">
-                <label>Description</label>
-                <input name="description" class="u-full-width" placeholder="Description of the project" />
-            </div>
-            <div class="one column">
-                <label>Type</label>
-                <input name="type" class="u-full-width" placeholder="Mobile or Web" />
-            </div>
-            <div class="one column">
-                <label>Link</label>
-                <input name="link" class="u-full-width" />
-            </div>
-            <div class="two columns">
-                <input class="button-primary" type="submit"value="Save">
-            </div>
+    <div class="row">
+        <div class="two columns">
+            <label>Title</label>
         </div>
-    </form>
-
+        <div class="four columns">
+            <label>Description</label>
+        </div>
+        <div class="one column">
+            <label>Type</label>
+        </div>
+        <div class="one columns">
+            <label>Image</label>
+        </div>
+        <div class="one columns">
+            <label>Video</label>
+        </div>
+        <div class="one column">
+            <label>Link</label>
+        </div>
+        <div class="two columns">
+        </div>
+    </div>
 
     #loop(projects, "project") {
         <div class="row">
@@ -43,17 +43,33 @@
             <div class="one column">
                 <p><span>#(project.type)</span></p>
             </div>
-            <div class="two columns">
-                <p><span>#(project.tech)</span></p>
+            <div class="one columns">
+                #if(project.image) {
+                    <p><span>#(project.image)</span></p>
+                    } ##else() {
+                    <p></p>
+                    }
+            </div>
+            <div class="one columns">
+                #if(project.video) {
+                    <p><span>#(project.video)</span></p>
+                    } ##else() {
+                    <p></p>
+                    }
             </div>
             <div class="one column">
-                <a href="#(project.link)"><span>link</span></a>
+                #if(project.link) {
+                    <a href="#(project.link)"><span>link</span></a>
+                    } ##else() {
+                    <p></p>
+                    }
             </div>
             <div class="two columns">
-                <form action="/project/#(project.id)/delete" method="post">
+                <form action="/admin/projects/#(project.id)/delete" method="post">
                     <input type="submit" value="Delete"/>
                 </form>
             </div>
         </div>
     }
+</div>
 }

@@ -41,9 +41,16 @@ final class Project: Model {
         node["title"] = title.makeNode()
         node["description"] = description.makeNode()
         node["type"] = type.makeNode()
-        node["image"] = image?.makeNode()
-        node["video"] = video?.makeNode()
-        node["link"] = link?.makeNode()
+        
+        if let image = image {
+            node["image"] = image.makeNode()
+        }
+        if let video = video {
+            node["video"] = video.makeNode()
+        }
+        if let link = link {
+            node["link"] = link.makeNode()
+        }
         
         switch context {
         case ProjectContext.all:
@@ -95,10 +102,6 @@ extension Project {
 
 public enum ProjectContext: Context {
     case all
-}
-
-enum TechStack: String {
-    case iOS, Swift, Android, PostgreSQL, SQLite, MySQL, Vapor, Leaf, Skeleton, Heroku, XCode, RoR, HTML, HAML, CSS, SASS, JavaScript, jQuery, Jasmin, RSpec, Capibara, Bootstrap, AWS, Sketch, Vim
 }
 
 enum TechSkills: String {
