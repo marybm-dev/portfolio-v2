@@ -58,6 +58,11 @@ drop.group("admin") { admin in
     admin.group(BasicAuthMiddleware(), protect) { secured in
         secured.get("me", handler: usersController.me)
         
+        let tags = secured.grouped("tags")
+        tags.get(handler: tagController.index)
+        tags.post(handler: tagController.create)
+        tags.post(Tag.self, handler: tagController.delete)
+        
         let projects = secured.grouped("projects")
         projects.get(handler: projectController.index)
         projects.get("new", handler: projectController.new)

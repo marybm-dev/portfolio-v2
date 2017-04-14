@@ -1,0 +1,65 @@
+#extend("private")
+
+#export("body") {
+
+<div class="container">
+    <div class="row">
+        <br><br>
+        <div class="u-full-width">
+            <h4>Tags</h4>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="two columns">
+            <label>Type</label>
+        </div>
+        <div class="six columns">
+            <label>Name</label>
+        </div>
+        <div class="two columns">
+        </div>
+        <div class="two columns">
+        </div>
+    </div>
+    
+    <form action="/admin/tags" method="post">
+        <div class="row">
+            <div class="two columns">
+                <select class="u-full-width" name="type" >
+                    <option value="db">Database</option>
+                    <option value="web">Web</option>
+                    <option value="design">Design</option>
+                    <option value="markup">Markup</option>
+                    <option value="js">JavaScript</option>
+                    <option value="tools">Tools</option>
+                    <option value="testing">Testing</option>
+                </select>
+            </div>
+            <div class="eight columns">
+                <input name="name" type="text" class="u-full-width" placeholder="Heroku, RoR, etc." />
+            </div>
+            <div class="two columns">
+                <input class="button-primary" type="submit" value="Create"/>
+            </div>
+        </div>
+    </form>
+    
+    
+#loop(tags, "tag") {
+    <div class="row">
+        <div class="two columns">
+            <p><span>#(tag.type)</span></p>
+        </div>
+        <div class="eight columns">
+            <p><span>#(tag.name)</span></p>
+        </div>
+        <div class="two columns">
+            <form action="/admin/tags/#(tag.id)" method="post">
+                <input type="submit" value="Delete"/>
+            </form>
+        </div>
+    </div>
+}
+</div>
+}
