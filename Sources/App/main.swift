@@ -65,6 +65,7 @@ drop.group("admin") { admin in
         projects.get(Project.self, handler: projectController.show)
         projects.post(handler: projectController.create)
         projects.post(Project.self, "delete", handler: projectController.delete)
+        projects.post(Project.self, handler: projectController.update)
     }
 }
 

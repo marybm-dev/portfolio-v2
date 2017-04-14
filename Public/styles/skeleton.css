@@ -379,6 +379,9 @@ hr {
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
 
+.td-button {
+    margin-bottom: 0px;
+}
 
 /* Clearing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
