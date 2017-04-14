@@ -46,7 +46,7 @@
         </div>
 
         <div class="row">
-            <input class="button-primary" type="submit"value="Save">
+            <input class="button-primary" type="submit"value="Create">
         </div>
     </form>
 </div>

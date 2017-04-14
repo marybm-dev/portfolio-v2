@@ -2,10 +2,15 @@
 
 #export("body") {
 <div class="container">
+    <br><br>
     <div class="row">
-        <br><br>
-        <div class="u-full-width">
+        <div class="ten columns">
             <h4>Projects</h4>
+        </div>
+        <div class="two columns">
+            <form action="/admin/projects/new" method="get">
+                <span><input type="submit" class="button-primary" value="Create"/></span>
+            </form>
         </div>
     </div>
 
