@@ -1,0 +1,45 @@
+#extend("private")
+
+#export("body") {
+
+<div class="container">
+    <div class="row">
+        <br><br>
+        <div class="u-full-width">
+            <h4>Types</h4>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="ten columns">
+            <label>Name</label>
+        </div>
+        <div class="two columns">
+        </div>
+    </div>
+    
+    <form action="/admin/types" method="post">
+        <div class="row">
+            <div class="ten columns">
+                <input name="name" type="text" class="u-full-width" placeholder="Swift, iOS, etc." />
+            </div>
+            <div class="two columns">
+                <input class="button-primary" type="submit" value="Create"/>
+            </div>
+        </div>
+    </form>
+    
+    #loop(types, "type") {
+    <div class="row">
+        <div class="ten columns">
+            <p><span>#(type.name)</span></p>
+        </div>
+        <div class="two columns">
+            <form action="/admin/types/#(type.id)" method="post">
+                <input type="submit" value="Delete"/>
+            </form>
+        </div>
+    </div>
+    }
+</div>
+}

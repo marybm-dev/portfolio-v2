@@ -63,6 +63,11 @@ drop.group("admin") { admin in
         tags.post(handler: tagController.create)
         tags.post(Tag.self, handler: tagController.delete)
         
+        let types = secured.grouped("types")
+        types.get(handler: typeController.index)
+        types.post(handler: typeController.create)
+        types.post(Type.self, handler: typeController.delete)
+        
         let projects = secured.grouped("projects")
         projects.get(handler: projectController.index)
         projects.get("new", handler: projectController.new)

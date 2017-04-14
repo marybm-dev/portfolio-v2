@@ -5,7 +5,7 @@
                 <a class="navbar-link" href="/admin/projects">Projects</a>
             </li>
             <li class="navbar-item">
-                <a class="navbar-link" href="">Types</a>
+                <a class="navbar-link" href="/admin/types">Types</a>
             </li>
             <li class="navbar-item">
                 <a class="navbar-link" href="/admin/tags">Tags</a>
