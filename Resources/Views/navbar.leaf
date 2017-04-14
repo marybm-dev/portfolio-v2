@@ -2,7 +2,7 @@
     <div class="container">
         <ul class="navbar-list">
             <li class="navbar-item">
-                <a class="navbar-link" href="">Projects</a>
+                <a class="navbar-link" href="/admin/projects">Projects</a>
             </li>
             <li class="navbar-item">
                 <a class="navbar-link" href="">Types</a>

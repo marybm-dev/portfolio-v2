@@ -47,21 +47,21 @@
             </div>
             <div class="one columns">
                 #if(project.image) {
-                    <p><span>#(project.image)</span></p>
+                    <span><img src="#(project.image)" width="50" height="50"/></span>
                     } ##else() {
                     <p></p>
                     }
             </div>
             <div class="one columns">
                 #if(project.video) {
-                    <p><span>#(project.video)</span></p>
+                    <span><iframe width="75" height="50" src="#(project.video)" frameborder="0" allowfullscreen></iframe></span>
                     } ##else() {
                     <p></p>
                     }
             </div>
             <div class="one column">
                 #if(project.link) {
-                    <a href="#(project.link)"><span>link</span></a>
+                    <a href="#(project.link)"><span>View</span></a>
                     } ##else() {
                     <p></p>
                     }

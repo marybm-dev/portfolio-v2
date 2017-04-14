@@ -41,7 +41,7 @@
         
         <div class="u-full-width">
             <label>Link</label>
-            <input name="image" class="u-full-width" type="text" value="#(project.link)"/>
+            <input name="link" class="u-full-width" type="text" value="#(project.link)"/>
         </div>
         
         <div class="row">
