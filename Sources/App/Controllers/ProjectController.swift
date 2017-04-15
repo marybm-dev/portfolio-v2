@@ -11,6 +11,8 @@ final class ProjectController {
         portfolio.get(handler: projects)
         portfolio.get(String.self, handler: filteredProjects)
         
+        drop.get("test", handler: test)
+        
         // api routes
         let basic = drop.grouped("projects")
         basic.post(Project.self, "tags", Tag.self, handler: joinTag)
@@ -102,6 +104,15 @@ final class ProjectController {
 
 // Public Portfolio
 extension ProjectController {
+    
+    func test(request: Request) throws -> ResponseRepresentable {
+        let projects = try Project.all().makeNode(context: ProjectContext.all)
+        
+        let parameters = try Node(node: [
+            "projects": projects,
+            ])
+        return try drop.view.make("testBody", parameters)
+    }
     
     func projects(request: Request) throws -> ResponseRepresentable {
         let projects = try Project.all().makeNode(context: ProjectContext.all)
