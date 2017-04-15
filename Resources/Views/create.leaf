@@ -26,8 +26,7 @@
         
         <div class="row">
             <label>Description</label>
-            <textarea class="u-full-width" name="description" class="u-full-width" placeholder="Description of the project">
-            </textarea>
+            <textarea class="u-full-width" name="description" class="u-full-width" placeholder="Description of the project"></textarea>
         </div>
         
         <div class="row">
