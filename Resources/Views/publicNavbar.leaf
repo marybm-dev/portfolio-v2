@@ -18,8 +18,8 @@
             <li class="navbar-item">
                 <a class="navbar-link" href="/portfolio/Web">Web</a>
             </li>
-            <li class="navbar-item" style="float:right;">
-                <a class="navbar-link" href="">About</a>
+            <li class="navbar-item navbar-item-right">
+                <a class="navbar-link navbar-link-right" href="">About</a>
             </li>
         </ul>
     </nav>
