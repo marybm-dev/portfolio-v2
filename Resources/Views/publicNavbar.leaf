@@ -1,18 +1,27 @@
-<nav class="navbar">
-    <div class="container">
+
+<div class="container">
+    <div class="header">
+        <h2 class="brand-title">Mary Martinez</h2>
+        <h4 class="brand-tagline">Software Engineer</h4>
+    </div>
+    
+    <div class="navbar-spacer"></div>
+    
+    <nav class="navbar">
         <ul class="navbar-list">
             <li class="navbar-item">
                 <a class="navbar-link" href="/portfolio">Portfolio</a>
             </li>
             <li class="navbar-item">
-                <a class="navbar-link" href="">Mobile</a>
+                <a class="navbar-link" href="/portfolio/Mobile">Mobile</a>
             </li>
             <li class="navbar-item">
-                <a class="navbar-link" href="">Web</a>
+                <a class="navbar-link" href="/portfolio/Web">Web</a>
             </li>
-            <li class="navbar-item">
+            <li class="navbar-item" style="float:right;">
                 <a class="navbar-link" href="">About</a>
             </li>
         </ul>
-    </div>
-</nav>
+    </nav>
+</div>
+    

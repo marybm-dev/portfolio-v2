@@ -20,7 +20,7 @@
 /* Larger than phone */
 @media (min-width: 550px) {
     .header {
-        margin-top: 18rem; }
+        margin-top: 5rem; }
     .value-props {
         margin-top: 9rem;
         margin-bottom: 7rem; }
@@ -36,7 +36,7 @@
         margin-top: 12px; }
     .example-screenshot-wrapper {
         position: absolute;
-        width: 48%;
+        width: 48%;header
         height: 100%;
         left: 0;
         max-height: none; }

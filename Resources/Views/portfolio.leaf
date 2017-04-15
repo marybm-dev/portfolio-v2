@@ -1,66 +1,43 @@
 #extend("public")
 
 #export("body") {
-    <div id="layout" class="pure-g">
-        #embed("sidebar")
-        
-        <div class="content pure-u-1 pure-u-md-3-4">
-            <div>
-                <!-- A wrapper for all the projects -->
-                <div class="posts">
-                    <h1 class="content-subhead">My Projects</h1>
-                    
-                    #loop(projects, "project") {
-                        <!-- A single project -->
-                        <section class="post">
-                            <div class="post-description">
-                                <!-- images -->
-                                <div class="post-images pure-g">
-                                    <!-- images -->
-                                    #if(project.image) {
-                                    <div class="pure-u-1 pure-u-md-1-2">
-                                        <a href="#(project.image)">
-                                            <img src="#(project.image)" class="pure-img-responsive" />
-                                        </a>
-                                    </div>
-                                    }
-                                    
-                                    #if(project.video) {
-                                    <div class="pure-u-1 pure-u-md-1-2">
-                                        <a href="#(project.video)">
-                                            <iframe src="#(project.video)" class="pure-img-responsive" frameborder="0" allowfullscreen></iframe>
-                                        </a>
-                                    </div>
-                                    }
-                                </div>
-                            </div>
-                            
-                            <header class="post-header">
-                                #loop(project.types, "type") {
-                                    <img width="36" height="36" class="post-type" src="/images/#(type.name).png">
-                                }
 
-                                <h2 class="post-title">#(project.title)</h2>
-                                <p class="post-meta">
-                                    <a href="" >#(project.type)</a> app
-                                    #loop(project.tags, "tag") {
-                                        <a href="/tags/#(tag.id)/projects" class="post-category post-category-#(tag.type)" >#(tag.name)</a>
-                                    }
-                                </p>
-                            </header>
-                            
-                            <div class="post-description">
-                                <p>#(project.description)</p>
-                            </div>
-                        </section>
+<div class="container">
+    <br><br>
+    
+    
+    <div class="posts">
+        #loop(projects, "project") {
+            <section class="post">
+                <header class="post-header">
+                    #if(project.image) {
+                        <div class="img-thumb-wrapper">
+                            #if(project.link) {
+                            <a href="#(project.link)">
+                            } ##else() {
+                            <a href="#(project.image)">
+                            }
+                                <img src="#(project.image)" class="pure-img-responsive img-thumb" />
+                            </a>
+                        </div>
                     }
                     
+                    #loop(project.types, "type") {
+                        <img width="36" height="36" class="post-type" title="#(type.name)" src="/images/#(type.name).png">
+                    }
+                        
+                    <a href=" "><h4 class="post-title">#(project.title)</h4></a>
+                    <p class="post-meta">
+                    </p>
+                </header>
+                
+                <div class="post-description">
+                    <p>#(project.description)</p>
                 </div>
-            </div>
-            
-            #embed("footer")
-        </div>
+            </section>
+        }
     </div>
+</div>
 
-    <script src="ui.js"></script>
+#embed("footer")
 }
