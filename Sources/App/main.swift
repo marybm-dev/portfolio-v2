@@ -24,13 +24,6 @@ drop.middleware += sessions
 // ** FOR DEVELOPMENT ONLY ** Disable Cache
 (drop.view as? LeafRenderer)?.stem.cache = nil
 
-// Root route
-drop.get { req in
-    return try drop.view.make("welcome", [
-        "message": drop.localization[req.lang, "welcome", "title"]
-        ])
-}
-
 // Add public routes
 let projectController = ProjectController()
 projectController.addRoutes(drop: drop)
@@ -41,6 +34,13 @@ tagController.addRoutes(drop: drop)
 let typeController = TypeController()
 typeController.addRoutes(drop: drop)
 
+
+drop.get { req in
+    return try projectController.projects(request: req)
+}
+drop.get("portfolio", "About") { request in
+    return try drop.view.make("about")
+}
 
 // Add admin routes
 drop.group("admin") { admin in

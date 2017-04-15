@@ -1,0 +1,56 @@
+#extend("public")
+
+#export("body") {
+
+<div class="container content">
+    <div class="img-wrapper">
+        <div class="row">
+            <div class="four columns">
+                <img class="pure-img-responsive img-mary" src="/images/ilooklikeanengineer.png">
+            </div>
+            <div class="four columns">
+                <img class="pure-img-responsive img-mary" src="/images/lwt.png">
+            </div>
+            <div class="four columns">
+                <img class="pure-img-responsive img-mary" src="/images/silly.jpg">
+            </div>
+        </div>
+    </div>
+    <h4>Hi! 👋🏽 I'm Mary and I build mobile and web apps. 🤓📱🖥</h4>
+    <p>My favorite programming language is Swift and I particularly enjoy working with the iOS SDK. As of late I've been hacking away with Vapor, a Swift Server framework that's helped me relaunch my site!
+    </p>
+    <p>I've also worked with Android, Java, C/C++, Ruby on Rails, Python, HTML/HAML, CSS, SASS, Java Server Pages, and JavaScript (mostly vanilla, jQuery, and just a dash of Node).
+    </p>
+    <p>I'm a quick learner and am happy to leave my comfort zone in the spirit of some good R&amp;D. I love learning and I'm always looking to pick up new frameworks and API's — <b>I thrive on the challenge of getting something to work that I've never done before</b>. Some API's I've worked with include:
+        <ul>
+            <div class="row">
+                <div class="three columns">
+                    <li>Facebook Login</li>
+                    <li>Google Login</li>
+                    <li>Google Maps</li>
+                </div>
+                <div class="three columns">
+                    <li>Twilio</li>
+                    <li>Yelp</li>
+                    <li>FourSquare</li>
+                </div>
+                <div class="three columns">
+                    <li>Twitter</li>
+                    <li>Tumblr</li>
+                    <li>Etsy</li>
+                </div>
+                <div class="three columns">
+                    <li>GitHub</li>
+                    <li>Movies DB</li>
+                    <li>Rotten Tomatoes</li>
+                </div>
+            </div>
+        </ul>
+    </p>
+    <p>When I'm away from the computer you can find me trail running the Oakland Hills or Alameda shoreline, dancing the night away at an EDM event, or having a picnic with my partner and our boston terrier.
+    </p>
+    <p><b>If you want to work together feel free to email me!</b> I'm always open to collaborating or even pair programming, just let me know. ✌🏽</p>
+</div>
+
+    #embed("footer")
+}

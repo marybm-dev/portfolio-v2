@@ -19,7 +19,7 @@
                 <a class="navbar-link" href="/portfolio/Web">Web</a>
             </li>
             <li class="navbar-item navbar-item-right">
-                <a class="navbar-link navbar-link-right" href="">About</a>
+                <a class="navbar-link navbar-link-right" href="/portfolio/About">About</a>
             </li>
         </ul>
     </nav>

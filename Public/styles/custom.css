@@ -8,6 +8,23 @@
 .img-thumb {
     border-radius: 10px;
 }
+.img-wrapper {
+    display: block;
+    max-width: 100%;
+    max-height: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+.img-mary {
+    max-height: 280px;
+    border-radius: 20px;
+}
+
+.content {
+    margin-bottom: 4em;
+}
 
 .footer-list {
     margin-bottom: 5px;
