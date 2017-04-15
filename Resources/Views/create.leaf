@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <form action="/projects" method="post">
+    <form action="/admin/projects" method="post">
         <div class="row">
             <div class="eight columns">
                 <label>Title</label>
@@ -42,7 +42,7 @@
 
         <div class="row">
             <label>Link</label>
-            <input name="image" class="u-full-width" type="text" placeholder="Link URL"/>
+            <input name="link" class="u-full-width" type="text" placeholder="Link URL"/>
         </div>
 
         <div class="row">

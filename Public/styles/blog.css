@@ -127,9 +127,6 @@ h3 {
     background: #999;
     font-size: 80%;
 }
-    .post-category-platform {
-        background: #e77349;
-    }
     .post-category-db {
         background: #e7ca40;
     }
@@ -150,6 +147,9 @@ h3 {
     }
     .post-category-testing {
         background: #9ddce7;
+    }
+    .post-category-service {
+        background: #e77349;
     }
 
 .post-images {
