@@ -1,0 +1,42 @@
+#extend("public")
+
+
+#export("body") {
+
+<div class="container">
+    <br><br>
+    <div class="row">
+        <div class="u-full-width">
+            #if(project.link) {
+                <a href="#(project.link)">
+                    #if(project.image) {
+                    <img src="#(project.image)" class="img-project"/>
+                    }
+                </a>
+            }
+            
+            <h4>#(project.title)</h4>
+            <a href="/portfolio/#(project.type)" >#(project.type)</a> app
+            #loop(project.tags, "tag") {
+                <a href="/tags/#(tag.id)/projects" class="post-category post-category-#(tag.type)" >#(tag.name)</a>
+            }
+            <p>#(project.subtitle)</p>
+        </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="u-full-width">
+            #(project.description)
+        </div>
+    <br>
+
+    #if(project.video) {
+        <div class="row">
+            <div class="u-full-width">
+                <iframe width="400" height="300" src="#(project.video)" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    }
+</diV>
+}
