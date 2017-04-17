@@ -3,25 +3,23 @@
     <div class="header">
         <h2 class="brand-title">Mary Martinez</h2>
         <h4 class="brand-tagline">Software Engineer</h4>
+    
+        <nav class="navbar" id="js-responsive-nav">
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/portfolio">Portfolio</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/portfolio/Mobile">Mobile</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/portfolio/Web">Web</a>
+                </li>
+                <li class="navbar-item navbar-item-right">
+                    <a class="navbar-link navbar-link-right" href="/portfolio/About">About</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    
-    <div class="navbar-spacer"></div>
-    
-    <nav class="navbar">
-        <ul class="navbar-list">
-            <li class="navbar-item">
-                <a class="navbar-link" href="/portfolio">Portfolio</a>
-            </li>
-            <li class="navbar-item">
-                <a class="navbar-link" href="/portfolio/Mobile">Mobile</a>
-            </li>
-            <li class="navbar-item">
-                <a class="navbar-link" href="/portfolio/Web">Web</a>
-            </li>
-            <li class="navbar-item navbar-item-right">
-                <a class="navbar-link navbar-link-right" href="/portfolio/About">About</a>
-            </li>
-        </ul>
-    </nav>
 </div>
     

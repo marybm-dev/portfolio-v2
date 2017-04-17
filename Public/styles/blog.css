@@ -31,9 +31,20 @@ h3 {
 }
 
 .header {
-    text-align: center;
-    top: auto;
-    border-bottom: 1px solid #eee
+    text-align: right;
+}
+
+@media screen and (min-width: 720px) {
+    .header {
+        text-align: center;
+        top: auto;
+    }
+}
+@media screen and (min-width: 300px) and (max-width: 720px) {
+    .header {
+        
+        border-bottom: 1px solid #eee;
+    }
 }
 
 .sidebar {
