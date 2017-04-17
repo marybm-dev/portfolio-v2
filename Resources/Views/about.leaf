@@ -9,10 +9,10 @@
                 <img class="pure-img-responsive img-mary" src="/images/ilooklikeanengineer.png">
             </div>
             <div class="four columns">
-                <img class="pure-img-responsive img-mary" src="/images/lwt.png">
+                <img class="pure-img-responsive img-mary img-extra" src="/images/lwt.png">
             </div>
             <div class="four columns">
-                <img class="pure-img-responsive img-mary" src="/images/silly.jpg">
+                <img class="pure-img-responsive img-mary img-extra" src="/images/silly.jpg">
             </div>
         </div>
     </div>
