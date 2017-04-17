@@ -44,7 +44,6 @@
                                 <h4 class="post-title">#(project.title)</h4>
                         </a>
                     <p class="post-meta">
-                        <a href="" >#(project.type)</a> app
                         #loop(project.tags, "tag") {
                             <a href="/tags/#(tag.id)/projects" class="post-category post-category-#(tag.type)" >#(tag.name)</a>
                         }

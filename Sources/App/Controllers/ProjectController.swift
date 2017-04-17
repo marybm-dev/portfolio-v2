@@ -7,9 +7,8 @@ final class ProjectController {
     
     func addRoutes(drop: Droplet) {
         // portfolio routes
-        let portfolio = drop.grouped("portfolio")
-        portfolio.get(handler: projects)
-        portfolio.get(String.self, handler: filteredProjects)
+        drop.get(handler: projects)
+        drop.get(String.self, handler: filteredProjects)
 
         // api routes
         let basic = drop.grouped("projects")

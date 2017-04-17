@@ -38,7 +38,7 @@ typeController.addRoutes(drop: drop)
 drop.get { req in
     return try projectController.projects(request: req)
 }
-drop.get("portfolio", "About") { request in
+drop.get("about") { request in
     return try drop.view.make("about")
 }
 

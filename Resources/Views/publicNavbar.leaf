@@ -7,16 +7,16 @@
         <nav class="navbar" id="js-responsive-nav">
             <ul class="navbar-list">
                 <li class="navbar-item">
-                    <a class="navbar-link" href="/portfolio">Portfolio</a>
+                    <a class="navbar-link" href="/">Portfolio</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="navbar-link" href="/portfolio/Mobile">Mobile</a>
+                    <a class="navbar-link" href="/mobile">Mobile</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="navbar-link" href="/portfolio/Web">Web</a>
+                    <a class="navbar-link" href="/web">Web</a>
                 </li>
                 <li class="navbar-item navbar-item-right">
-                    <a class="navbar-link navbar-link-right" href="/portfolio/About">About</a>
+                    <a class="navbar-link navbar-link-right" href="/about">About</a>
                 </li>
             </ul>
         </nav>
