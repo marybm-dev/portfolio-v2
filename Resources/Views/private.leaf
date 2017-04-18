@@ -14,3 +14,32 @@
         #import("body")
     </body>
 </html>
+
+
+<!--
+ Some API's I've worked with include:
+ <ul>
+     <div class="row">
+         <div class="three columns">
+             <li>Facebook Login</li>
+             <li>Google Login</li>
+             <li>Google Maps</li>
+         </div>
+         <div class="three columns">
+             <li>Twilio</li>
+             <li>Yelp</li>
+             <li>FourSquare</li>
+         </div>
+         <div class="three columns">
+             <li>Twitter</li>
+             <li>Tumblr</li>
+             <li>Etsy</li>
+         </div>
+         <div class="three columns">
+             <li>GitHub</li>
+             <li>Movies DB</li>
+             <li>Rotten Tomatoes</li>
+         </div>
+     </div>
+ </ul>
+-->
