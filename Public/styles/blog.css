@@ -42,7 +42,6 @@ h3 {
 }
 @media screen and (min-width: 300px) and (max-width: 720px) {
     .header {
-        
         border-bottom: 1px solid #eee;
     }
 }
@@ -55,6 +54,11 @@ h3 {
 .brand-title,
 .brand-tagline {
     margin: 0;
+}
+@media screen and (min-width: 300px) and (max-width: 720px) {
+    .brand-tagline {
+        display: none;
+    }
 }
 .brand-title {
     text-transform: uppercase;
