@@ -47,7 +47,7 @@ final class ProjectController {
         var project = Project(title: title, subtitle: subtitle, description: description, type: type, image: image, video: video, link: link)
         try project.save()
         
-        return Response(redirect: "/admin/projects")
+        return try allProjects()
     }
     
     func show(request: Request, project: Project) throws -> ResponseRepresentable {
@@ -104,6 +104,17 @@ final class ProjectController {
 
 }
 
+
+extension ProjectController {
+    
+    func allProjects() throws -> ResponseRepresentable {
+        let projects = try Project.all().makeNode()
+        let parameters = try Node(node: [
+            "projects": projects.makeNode(context: ProjectContext.all),
+            ])
+        return try drop.view.make("index", parameters)
+    }
+}
 
 // Public Portfolio
 extension ProjectController {
