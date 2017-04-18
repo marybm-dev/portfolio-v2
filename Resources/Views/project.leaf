@@ -26,8 +26,7 @@
         <div class="demo-gallery">
             <ul id="lightgallery">
                 #loop(medias, "media") {
-                    <li data-responsive="#(media.source) 375, #(media.source) 480, #(media.source) 800" data-src="#(media.source)"
-                        data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                    <li data-src="#(media.source)">
                         <a href="">
                             <img class="img-responsive" src="#(media.source)">
                         </a>
