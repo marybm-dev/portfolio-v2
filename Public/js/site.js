@@ -15,4 +15,6 @@ $(document).ready(function() {
            responsiveNav.classList.toggle("is-open");
         }
     })
+                  
+    lightGallery(document.getElementById('lightgallery'));
 });

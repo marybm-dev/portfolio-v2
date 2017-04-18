@@ -10,9 +10,12 @@
             <link rel="stylesheet" href="/styles/normalize.css">
             <link rel="stylesheet" href="/styles/skeleton.css">
             <link rel="stylesheet" href="/styles/custom.css">
+            <link rel="stylesheet" href="/styles/gallery.css">
+            <link rel="stylesheet" href="/styles/lightgallery.css" /> 
             <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
             <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script src="/js/site.js"></script>
+            <script src="/js/lightgallery.min.js"></script>
     </head>
     <body>
         #embed("publicNavbar")
