@@ -60,11 +60,15 @@ final class ProjectController {
     func edit(request: Request, project: Project) throws -> ResponseRepresentable {
         let tags = try Tag.all().makeNode()
         let types = try Type.all().makeNode()
+        let medias = try Media.all().makeNode()
         let parameters = try Node(node: [
             "project": project.makeNode(context: ProjectContext.all),
             "tags": tags,
             "types": types,
+            "medias": medias,
             ])
+        
+        
         return try drop.view.make("edit", parameters)
     }
     
@@ -108,6 +112,7 @@ extension ProjectController {
     func project(request: Request, project: Project) throws -> ResponseRepresentable {
         let parameters = try Node(node: [
             "project": project.makeNode(context: ProjectContext.all),
+            "medias": project.medias().makeNode(),
             ])
         return try drop.view.make("project", parameters)
     }
@@ -123,7 +128,6 @@ extension ProjectController {
     
     func filteredProjects(request: Request, type: String) throws -> ResponseRepresentable {
         let projects = try Project.query().filter("type", type).all().makeNode(context: ProjectContext.all)
-        //let projects = try Project.all().makeNode(context: ProjectContext.all)
         
         let parameters = try Node(node: [
             "projects": projects,
@@ -177,5 +181,5 @@ extension ProjectController {
         let tags = try project.tags()
         return try JSON(node: tags.makeNode())
     }
-    
+
 }

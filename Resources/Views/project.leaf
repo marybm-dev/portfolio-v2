@@ -25,33 +25,14 @@
     <div class="cont">
         <div class="demo-gallery">
             <ul id="lightgallery">
-                <li data-responsive="/images/lwt.png 375, /images/lwt.png 480, /images/lwt.png 800" data-src="/images/lwt.png"
-                    data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-                    <a href="">
-                        <img class="img-responsive" src="/images/lwt.png">
-                            <div class="demo-gallery-poster">
-                                <img src="/images/lwt.png">
-                            </div>
-                    </a>
-                </li>
-                <li data-responsive="/images/silly.jpg 375, /images/silly.jpg 480, /images/silly.jpg 800" data-src="/images/silly.jpg"
-                    data-sub-html="<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>">
-                    <a href="">
-                        <img class="img-responsive" src="/images/silly.jpg">
-                            <div class="demo-gallery-poster">
-                                <img src="/images/silly.jpg">
-                            </div>
-                    </a>
-                </li>
-                <li data-responsive="/images/ilooklikeanengineer.png 375, /images/ilooklikeanengineer.png 480, /images/ilooklikeanengineer.png 800" data-src="/images/ilooklikeanengineer.png"
-                    data-sub-html="<h4>Sunset Serenity</h4><p>A gorgeous Sunset tonight captured at Coniston Water....</p>">
-                    <a href="">
-                        <img class="img-responsive" src="/images/ilooklikeanengineer.png">
-                            <div class="demo-gallery-poster">
-                                <img src="/images/ilooklikeanengineer.png">
-                            </div>
-                    </a>
-                </li>
+                #loop(medias, "media") {
+                    <li data-responsive="#(media.source) 375, #(media.source) 480, #(media.source) 800" data-src="#(media.source)"
+                        data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+                        <a href="">
+                            <img class="img-responsive" src="#(media.source)">
+                        </a>
+                    </li>
+                }
             </ul>
             <span class="small">#(project.subtitle)</span>
         </div>

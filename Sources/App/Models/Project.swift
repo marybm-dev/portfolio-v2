@@ -103,6 +103,10 @@ extension Project {
         let types: Siblings<Type> = try siblings()
         return try types.all()
     }
+    
+    func medias() throws -> [Media] {
+        return try children(nil, Media.self).all()
+    }
 }
 
 public enum ProjectContext: Context {

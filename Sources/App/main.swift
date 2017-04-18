@@ -14,6 +14,7 @@ drop.preparations += Project.self
 drop.preparations += User.self
 drop.preparations += Tag.self
 drop.preparations += Type.self
+drop.preparations += Media.self
 drop.preparations += Pivot<Project, Tag>.self
 drop.preparations += Pivot<Project, Type>.self
 
@@ -34,6 +35,8 @@ tagController.addRoutes(drop: drop)
 let typeController = TypeController()
 typeController.addRoutes(drop: drop)
 
+let mediaController = MediaController()
+mediaController.addRoutes(drop: drop)
 
 drop.get { req in
     return try projectController.projects(request: req)
@@ -67,6 +70,11 @@ drop.group("admin") { admin in
         types.get(handler: typeController.index)
         types.post(handler: typeController.create)
         types.post(Type.self, handler: typeController.delete)
+        
+//        let medias = secured.grouped("medias")
+//        medias.get(handler: mediaController.index)
+//        medias.post(Project.self, handler: mediaController.create)
+//        medias.post(Media.self, handler: mediaController.delete)
         
         let projects = secured.grouped("projects")
         projects.get(handler: projectController.index)

@@ -145,5 +145,32 @@
             <input class="button-primary" type="submit"value="Save">
         </div>
     </form>
+    
+    <div class="u-full-width">
+        <label>Media</label>
+        <form action="/medias/project/#(project.id)" method="post">
+            <input name="type" class="u-full-width" type="text" placeholder="Image/Video"/>
+            <input name="source" class="u-full-width" type="text" placeholder="Source"/>
+            <input class="td-button button-primary" type="submit" value="Add"/>
+        </form>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>All Medias</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            #loop(medias, "media") {
+            <tr>
+                <td>#(media.type)</td>
+                <td>#(media.source)</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
 </div>
 }
