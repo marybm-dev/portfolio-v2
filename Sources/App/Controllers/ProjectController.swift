@@ -60,12 +60,10 @@ final class ProjectController {
     func edit(request: Request, project: Project) throws -> ResponseRepresentable {
         let tags = try Tag.all().makeNode()
         let types = try Type.all().makeNode()
-        let medias = try Media.all().makeNode()
         let parameters = try Node(node: [
             "project": project.makeNode(context: ProjectContext.all),
             "tags": tags,
             "types": types,
-            "medias": medias,
             ])
         
         return try drop.view.make("edit", parameters)

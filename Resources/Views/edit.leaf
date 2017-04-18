@@ -146,14 +146,25 @@
             </table>
         </div>
     </div>
-
+    <br>
+    <br>
 
     <!-- Media section -->
     <div class="u-full-width">
-        <label>Media</label>
         <form action="/medias/project/#(project.id)" method="post">
-            <input name="type" class="u-full-width" type="text" placeholder="Image/Video"/>
-            <input name="source" class="u-full-width" type="text" placeholder="Source"/>
+            <div class="row">
+                <div class="two columns">
+                    <label>Type</label>
+                    <select class="u-full-width" name="type" >
+                        <option value="image">Image</option>
+                        <option value="video">Video</option>
+                    </select>
+                </div>
+                <div class="ten columns">
+                    <label>Source</label>
+                    <input name="source" class="u-full-width" type="text" placeholder="Source"/>
+                </div>
+            </div>
             <input class="td-button button-primary" type="submit" value="Add"/>
         </form>
     </div>
@@ -166,7 +177,7 @@
             </tr>
         </thead>
         <tbody>
-            #loop(medias, "media") {
+            #loop(project.medias, "media") {
             <tr>
                 <td>#(media.type)</td>
                 <td>#(media.source)</td>

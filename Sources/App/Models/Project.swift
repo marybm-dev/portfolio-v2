@@ -68,6 +68,11 @@ final class Project: Model {
                 node["types"] = try allTypes.makeNode()
             }
             
+            let allMedias = try medias()
+            if allMedias.count > 0 {
+                node["medias"] = try allMedias.makeNode()
+            }
+            
         default:
             break
         }
