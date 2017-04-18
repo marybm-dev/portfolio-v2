@@ -50,102 +50,105 @@
         </div>
         
         <div class="row">
-            <div class="three columns">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tags</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        #loop(project.tags, "tag") {
-                        <tr>
-                            <td>#(tag.name)</td>
-                            <td>
-                                <form class="td-button" action="/projects/#(project.id)/tags-delete/#(tag.id)" method="post">
-                                    <input class="td-button" type="submit" value="Delete"/>
-                                </form>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <div class="three columns">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>All Tags</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        #loop(tags, "tag") {
-                        <tr>
-                            <td>#(tag.name)</td>
-                            <td>
-                                <form class="td-button" action="/projects/#(project.id)/tags/#(tag.id)" method="post">
-                                    <input class="td-button button-primary" type="submit" value="Add"/>
-                                </form>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="three columns">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Types</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        #loop(project.types, "type") {
-                        <tr>
-                            <td>#(type.name)</td>
-                            <td>
-                                <form class="td-button" action="/projects/#(project.id)/types-delete/#(type.id)" method="post">
-                                    <input class="td-button" type="submit" value="Delete"/>
-                                </form>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <div class="three columns">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>All Types</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        #loop(types, "type") {
-                        <tr>
-                            <td>#(type.name)</td>
-                            <td>
-                                <form class="td-button" action="/projects/#(project.id)/types/#(type.id)" method="post">
-                                    <input class="td-button button-primary" type="submit" value="Add"/>
-                                </form>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <div class="row">
             <input class="button-primary" type="submit"value="Save">
         </div>
     </form>
     
+    <!-- Tags and Types section -->
+    <div class="row">
+        <div class="three columns">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tags</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    #loop(project.tags, "tag") {
+                    <tr>
+                        <td>#(tag.name)</td>
+                        <td>
+                            <form class="td-button" action="/projects/#(project.id)/tags-delete/#(tag.id)" method="post">
+                                <input class="td-button" type="submit" value="Delete"/>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="three columns">
+            <table>
+                <thead>
+                    <tr>
+                        <th>All Tags</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    #loop(tags, "tag") {
+                    <tr>
+                        <td>#(tag.name)</td>
+                        <td>
+                            <form class="td-button" action="/projects/#(project.id)/tags/#(tag.id)" method="post">
+                                <input class="td-button button-primary" type="submit" value="Add"/>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="three columns">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Types</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    #loop(project.types, "type") {
+                    <tr>
+                        <td>#(type.name)</td>
+                        <td>
+                            <form class="td-button" action="/projects/#(project.id)/types-delete/#(type.id)" method="post">
+                                <input class="td-button" type="submit" value="Delete"/>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="three columns">
+            <table>
+                <thead>
+                    <tr>
+                        <th>All Types</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    #loop(types, "type") {
+                    <tr>
+                        <td>#(type.name)</td>
+                        <td>
+                            <form class="td-button" action="/projects/#(project.id)/types/#(type.id)" method="post">
+                                <input class="td-button button-primary" type="submit" value="Add"/>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- Media section -->
     <div class="u-full-width">
         <label>Media</label>
         <form action="/medias/project/#(project.id)" method="post">

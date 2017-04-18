@@ -60,3 +60,12 @@
 
 </div>
 }
+
+<!-- video WIP
+     #equal(#(media.type), video) {
+     <li data-src="https://www.youtube.com/embed/kxBVI8dlkzo">
+         <a href="">
+         <iframe class="img-responsive" src="https://www.youtube.com/embed/kxBVI8dlkzo" frameborder="0" allowfullscreen></iframe>
+         </a>
+     </li>
+ }  -->

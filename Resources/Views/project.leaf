@@ -26,11 +26,13 @@
         <div class="demo-gallery">
             <ul id="lightgallery">
                 #loop(medias, "media") {
+                    #equal(#(media.type), image) {
                     <li data-src="#(media.source)">
                         <a href="">
                             <img class="img-responsive" src="#(media.source)">
-                        </a>
+                                </a>
                     </li>
+                    }
                 }
             </ul>
             <span class="small">#(project.subtitle)</span>
@@ -50,8 +52,6 @@
             </div>
         </div>
     }
-    
-    
 
 </diV>
 }

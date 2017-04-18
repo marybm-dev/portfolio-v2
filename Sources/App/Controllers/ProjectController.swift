@@ -68,7 +68,6 @@ final class ProjectController {
             "medias": medias,
             ])
         
-        
         return try drop.view.make("edit", parameters)
     }
     
