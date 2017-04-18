@@ -27,6 +27,12 @@
     <br>
     
     <div class="row">
+        <label>Subtitle</label>
+        #(project.subtitle)
+    </div>
+    <br>
+    
+    <div class="row">
         <label>Description</label>
         #(project.description)
     </div>

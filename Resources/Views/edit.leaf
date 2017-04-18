@@ -25,6 +25,11 @@
         </div>
         
         <div class="u-full-width">
+            <label>Subtitle</label>
+            <input name="subtitle" class="u-full-width" type="text" placeholder="Project's subtitle"/>
+        </div>
+        
+        <div class="u-full-width">
             <label>Description</label>
             <textarea class="u-full-width" name="description" class="u-full-width">#(project.description)</textarea>
         </div>

@@ -25,8 +25,13 @@
         </div>
         
         <div class="row">
+            <label>Subtitle</label>
+            <input name="subtitle" class="u-full-width" type="text" placeholder="Brief description"></textarea>
+        </div>
+        
+        <div class="row">
             <label>Description</label>
-            <textarea class="u-full-width" name="description" class="u-full-width" placeholder="Description of the project"></textarea>
+            <textarea name="description" class="u-full-width" placeholder="Description of the project"></textarea>
         </div>
         
         <div class="row">

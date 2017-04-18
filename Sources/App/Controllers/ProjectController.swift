@@ -9,6 +9,7 @@ final class ProjectController {
         // portfolio routes
         drop.get(handler: projects)
         drop.get(String.self, handler: filteredProjects)
+        drop.get(Project.self, handler: project)
 
         // api routes
         let basic = drop.grouped("projects")
@@ -33,6 +34,7 @@ final class ProjectController {
     
     func create(request: Request) throws -> ResponseRepresentable {
         guard let title = request.data["title"]?.string,
+            let subtitle = request.data["subtitle"]?.string,
             let description = request.data["description"]?.string,
             let type = request.data["type"]?.string else {
                 throw Abort.badRequest
@@ -42,7 +44,7 @@ final class ProjectController {
         let video = request.data["video"]?.string
         let link = request.data["link"]?.string
         
-        var project = Project(title: title, description: description, type: type, image: image, video: video, link: link)
+        var project = Project(title: title, subtitle: subtitle, description: description, type: type, image: image, video: video, link: link)
         try project.save()
         
         return Response(redirect: "/admin/projects")
@@ -67,9 +69,9 @@ final class ProjectController {
     }
     
     func update(request: Request, project: Project) throws -> ResponseRepresentable {
-        
         guard let projectId = project.id,
             let title = request.data["title"]?.string,
+            let subtitle = request.data["subtitle"]?.string,
             let description = request.data["description"]?.string,
             let type = request.data["type"]?.string,
             var project = try Project.query().filter("id", projectId).first() else {
@@ -81,6 +83,7 @@ final class ProjectController {
         let link = request.data["link"]?.string
         
         project.title = title
+        project.subtitle = subtitle
         project.description = description
         project.type = type
         project.image = image
@@ -88,7 +91,7 @@ final class ProjectController {
         project.link = link
         try project.save()
         
-        return try self.show(request: request, project: project)
+        return Response(redirect: "/admin/projects")
     }
     
     func delete(request: Request, project: Project) throws ->ResponseRepresentable {
@@ -102,6 +105,13 @@ final class ProjectController {
 // Public Portfolio
 extension ProjectController {
 
+    func project(request: Request, project: Project) throws -> ResponseRepresentable {
+        let parameters = try Node(node: [
+            "project": project.makeNode(context: ProjectContext.all),
+            ])
+        return try drop.view.make("project", parameters)
+    }
+    
     func projects(request: Request) throws -> ResponseRepresentable {
         let projects = try Project.all().makeNode(context: ProjectContext.all)
         
