@@ -22,9 +22,6 @@ drop.middleware += AuthMiddleware<User>()
 drop.middleware += TrustProxyMiddleware()
 drop.middleware += sessions
 
-// ** FOR DEVELOPMENT ONLY ** Disable Cache
-(drop.view as? LeafRenderer)?.stem.cache = nil
-
 // Add public routes
 let projectController = ProjectController()
 projectController.addRoutes(drop: drop)
