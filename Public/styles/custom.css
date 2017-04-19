@@ -15,6 +15,13 @@
     max-height: 100px;
     margin-right: 15px;
 }
+@media screen and (max-width: 550px) {
+    .img-thumb-wrapper {
+        max-width: 75px;
+        max-height: 75px;
+        margin-right: .5em;
+    }
+}
 .img-thumb {
     border-radius: 10px;
 }
