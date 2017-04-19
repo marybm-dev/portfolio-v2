@@ -124,6 +124,8 @@ h3 {
 .post-type {
     float: right;
     margin-left: 1em;
+    width: 30px;
+    height: 30px;
 }
 @media screen and (min-width: 300px) and (max-width: 720px) {
     .post-type {

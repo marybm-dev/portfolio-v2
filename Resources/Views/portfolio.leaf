@@ -19,7 +19,7 @@
                     }
                     
                     #loop(project.types, "type") {
-                        <img width="36" height="36" class="post-type" title="#(type.name)" src="/images/#(type.name).png">
+                        <img class="post-type" title="#(type.name)" src="/images/#(type.name).png">
                     }
                     
                     <a href="/#(project.id)">
