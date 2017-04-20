@@ -2,10 +2,7 @@
 
 #export("body") {
 
-<div class="container">
-    <br><br>
-    
-    
+<div class="container content">
     <div class="posts">
         #loop(projects, "project") {
             <section class="post">

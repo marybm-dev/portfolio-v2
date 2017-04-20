@@ -1,8 +1,7 @@
 #extend("private")
 
 #export("body") {
-<div class="container">
-    <br><br>
+<div class="container content">
     <div class="row">
         <div class="ten columns">
             <h4>Projects</h4>
