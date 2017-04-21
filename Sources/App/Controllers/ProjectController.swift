@@ -21,11 +21,7 @@ final class ProjectController {
     }
     
     func index(request: Request) throws -> ResponseRepresentable {
-        let projects = try Project.all().makeNode()
-        let parameters = try Node(node: [
-                "projects": projects.makeNode(context: ProjectContext.all),
-        ])
-        return try drop.view.make("index", parameters)
+        return try allProjects()
     }
 
     func new(request: Request) throws -> ResponseRepresentable {
@@ -92,26 +88,22 @@ final class ProjectController {
         project.link = link
         try project.save()
         
-        return Response(redirect: "/admin/projects")
+        return try allProjects()
     }
     
     func delete(request: Request, project: Project) throws ->ResponseRepresentable {
         try project.delete()
-        return Response(redirect: "/admin/projects")
+        return try allProjects()
     }
 
-}
-
-
-extension ProjectController {
-    
     func allProjects() throws -> ResponseRepresentable {
         let projects = try Project.all().makeNode()
         let parameters = try Node(node: [
             "projects": projects.makeNode(context: ProjectContext.all),
             ])
-        return try drop.view.make("index", parameters)
+        return try drop.view.make("/private/index", parameters)
     }
+    
 }
 
 // Public Portfolio
