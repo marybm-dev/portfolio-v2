@@ -10,6 +10,7 @@
             <link rel="stylesheet" href="/styles/normalize.css">
             <link rel="stylesheet" href="/styles/skeleton.css">
             <link rel="stylesheet" href="/styles/custom.css">
+            <link rel="stylesheet" href="/styles/navbar.css">
             <link rel="stylesheet" href="/styles/gallery.css">
             <link rel="stylesheet" href="/styles/lightgallery.css" /> 
             <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
