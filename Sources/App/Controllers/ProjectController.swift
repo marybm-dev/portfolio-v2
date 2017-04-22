@@ -25,7 +25,7 @@ final class ProjectController {
     }
 
     func new(request: Request) throws -> ResponseRepresentable {
-        return try drop.view.make("create")
+        return try drop.view.make("/private/create")
     }
     
     func create(request: Request) throws -> ResponseRepresentable {
@@ -50,7 +50,7 @@ final class ProjectController {
         let parameters = try Node(node: [
             "project": project.makeNode(context: ProjectContext.all),
             ])
-        return try drop.view.make("show", parameters)
+        return try drop.view.make("/private/show", parameters)
     }
     
     func edit(request: Request, project: Project) throws -> ResponseRepresentable {
@@ -62,7 +62,7 @@ final class ProjectController {
             "types": types,
             ])
         
-        return try drop.view.make("edit", parameters)
+        return try drop.view.make("/private/edit", parameters)
     }
     
     func update(request: Request, project: Project) throws -> ResponseRepresentable {
@@ -114,7 +114,7 @@ extension ProjectController {
             "project": project.makeNode(context: ProjectContext.all),
             "medias": project.medias().makeNode(),
             ])
-        return try drop.view.make("project", parameters)
+        return try drop.view.make("/public/project", parameters)
     }
     
     func projects(request: Request) throws -> ResponseRepresentable {
@@ -123,7 +123,7 @@ extension ProjectController {
         let parameters = try Node(node: [
             "projects": projects,
             ])
-        return try drop.view.make("portfolio", parameters)
+        return try drop.view.make("/public/portfolio", parameters)
     }
     
     func filteredProjects(request: Request, type: String) throws -> ResponseRepresentable {
@@ -132,7 +132,7 @@ extension ProjectController {
         let parameters = try Node(node: [
             "projects": projects,
             ])
-        return try drop.view.make("portfolio", parameters)
+        return try drop.view.make("/public/portfolio", parameters)
     }
     
 }

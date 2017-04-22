@@ -36,7 +36,7 @@ let mediaController = MediaController()
 mediaController.addRoutes(drop: drop)
 
 drop.get("about") { request in
-    return try drop.view.make("about")
+    return try drop.view.make("/public/about")
 }
 drop.get("mobile") { request in
     return try projectController.filteredProjects(request: request, type: "mobile")
@@ -53,7 +53,7 @@ drop.group("admin") { admin in
     admin.post("login", handler: usersController.login)
     admin.post("logout", handler: usersController.logout)
     admin.get("login") { request in
-        return  try drop.view.make("login")
+        return  try drop.view.make("/private/login")
     }
     
     // Secured Endpoints

@@ -1,4 +1,4 @@
-#extend("private")
+#extend("/private/base")
 
 #export("body") {
 

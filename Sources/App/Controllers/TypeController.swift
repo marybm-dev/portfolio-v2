@@ -13,7 +13,7 @@ final class TypeController {
         let parameters = try Node(node: [
             "types": types.makeNode(),
             ])
-        return try drop.view.make("types", parameters)
+        return try drop.view.make("/private/types", parameters)
     }
     
     func create(request: Request) throws -> ResponseRepresentable {
@@ -37,7 +37,7 @@ final class TypeController {
             "projects": projects,
             ])
         
-        return try drop.view.make("portfolio", parameters)
+        return try drop.view.make("/public/portfolio", parameters)
     }
 
 }

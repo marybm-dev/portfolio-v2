@@ -1,4 +1,4 @@
-#extend("public")
+#extend("/public/base")
 
 #export("body") {
 

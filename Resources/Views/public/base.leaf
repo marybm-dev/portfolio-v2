@@ -18,9 +18,9 @@
             <script src="/js/lightgallery.min.js"></script>
     </head>
     <body>
-        #embed("publicNavbar")
+        #embed("/public/navbar")
         #import("body")
-        #embed("footer")
+        #embed("/public/footer")
     </body>
 </html>
 

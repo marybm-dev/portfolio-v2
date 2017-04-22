@@ -14,7 +14,7 @@ final class TagController {
         let parameters = try Node(node: [
             "tags": tags.makeNode(),
             ])
-        return try drop.view.make("tags", parameters)
+        return try drop.view.make("/private/tags", parameters)
     }
     
     func create(request: Request) throws -> ResponseRepresentable {
@@ -40,7 +40,7 @@ final class TagController {
             "projects": projects,
             ])
         
-        return try drop.view.make("portfolio", parameters)
+        return try drop.view.make("/public/portfolio", parameters)
     }
 
 }

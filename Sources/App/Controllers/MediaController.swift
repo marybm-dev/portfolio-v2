@@ -12,7 +12,7 @@ final class MediaController {
         let parameters = try Node(node: [
             "medias": medias.makeNode(),
             ])
-        return try drop.view.make("medias", parameters)
+        return try drop.view.make("/private/medias", parameters)
     }
     
     func create(request: Request, project: Project) throws -> ResponseRepresentable {
