@@ -10,7 +10,9 @@
         <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-        #embed("/private/navbar")
-        #import("body")
+        <div class="container">
+            #embed("/private/navbar")
+            #import("body")
+        </div>
     </body>
 </html>
