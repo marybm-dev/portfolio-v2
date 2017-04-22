@@ -1,8 +1,7 @@
 #extend("/public/base")
 
 #export("body") {
-
-<div class="content">
+<div class="container content">
     <div class="img-wrapper">
         <div class="row">
             <div class="four columns">

@@ -18,10 +18,8 @@
             <script src="/js/lightgallery.min.js"></script>
     </head>
     <body>
-        <div class="container">
-            #embed("/public/navbar")
-            #import("body")
-        </div>
+        #embed("/public/navbar")
+        #import("body")
         #embed("/public/footer")
     </body>
 </html>

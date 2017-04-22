@@ -1,9 +1,7 @@
 #extend("/public/base")
 
-
 #export("body") {
-
-<div class="content">
+<div class="container content">
     <div class="row">
         <div class="u-full-width">
             #if(project.link) {

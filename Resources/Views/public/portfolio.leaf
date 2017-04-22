@@ -1,8 +1,7 @@
 #extend("/public/base")
 
 #export("body") {
-
-<div class="content">
+<div class="container content">
     <div class="posts">
         #loop(projects, "project") {
             <section class="post">
@@ -15,9 +14,10 @@
                         </div>
                     }
                     
+                    <!-- comment out so I don't get sued
                     #loop(project.types, "type") {
                         <img class="post-type" title="#(type.name)" src="/images/#(type.name).png">
-                    }
+                    } -->
                     
                     <a href="/#(project.id)">
                         <h4 class="post-title">#(project.title)</h4>
