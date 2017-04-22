@@ -9,7 +9,7 @@
                     #if(project.image) {
                         <div class="project-image-thumb-wrapper">
                             <a href="#(project.link)">
-                                <img src="#(project.image)" class="pure-img-responsive project-image-thumb" />
+                                <img src="#(project.image)" class="image-responsive project-image-thumb" />
                             </a>
                         </div>
                     }
