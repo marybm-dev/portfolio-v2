@@ -2,16 +2,16 @@
 
 #export("body") {
 <div class="container content">
-    <div class="img-wrapper">
+    <div class="about-image-wrapper">
         <div class="row">
             <div class="four columns">
-                <img class="pure-img-responsive img-mary" src="/images/ilooklikeanengineer.png">
+                <img class="pure-img-responsive about-image" src="/images/ilooklikeanengineer.png">
             </div>
             <div class="four columns">
-                <img class="pure-img-responsive img-mary img-extra" src="/images/lwt.png">
+                <img class="pure-img-responsive about-image about-image-extra" src="/images/lwt.png">
             </div>
             <div class="four columns">
-                <img class="pure-img-responsive img-mary img-extra" src="/images/silly.jpg">
+                <img class="pure-img-responsive about-image about-image-extra" src="/images/silly.jpg">
             </div>
         </div>
     </div>

@@ -7,14 +7,14 @@
             #if(project.link) {
                 <a href="#(project.link)">
                     #if(project.image) {
-                    <img src="#(project.image)" class="img-project img-detail"/>
+                    <img src="#(project.image)" class="project-image"/>
                     }
                 </a>
             }
             
             <h4 class="project-title">#(project.title)</h4>
             #loop(project.tags, "tag") {
-                <a href="/tags/#(tag.id)/projects" class="post-category post-category-#(tag.type)" >#(tag.name)</a>
+                <a href="/tags/#(tag.id)/projects" class="project-category project-category-#(tag.type)" >#(tag.name)</a>
             }
         </div>
     </div>

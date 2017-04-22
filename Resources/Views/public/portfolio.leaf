@@ -2,34 +2,34 @@
 
 #export("body") {
 <div class="container content">
-    <div class="posts">
+    <div class="projects">
         #loop(projects, "project") {
-            <section class="post">
-                <header class="post-header">
+            <section class="project">
+                <header class="project-header">
                     #if(project.image) {
-                        <div class="img-thumb-wrapper">
+                        <div class="project-image-thumb-wrapper">
                             <a href="#(project.link)">
-                                <img src="#(project.image)" class="pure-img-responsive img-thumb" />
+                                <img src="#(project.image)" class="pure-img-responsive project-image-thumb" />
                             </a>
                         </div>
                     }
                     
                     <!-- comment out so I don't get sued
                     #loop(project.types, "type") {
-                        <img class="post-type" title="#(type.name)" src="/images/#(type.name).png">
+                        <img class="project-type" title="#(type.name)" src="/images/#(type.name).png">
                     } -->
                     
                     <a href="/#(project.id)">
-                        <h4 class="post-title">#(project.title)</h4>
+                        <h4 class="project-title">#(project.title)</h4>
                     </a>
-                    <p class="post-meta">
+                    <p class="project-meta">
                         #loop(project.tags, "tag") {
-                            <a href="/tags/#(tag.id)/projects" class="post-category post-category-#(tag.type)" >#(tag.name)</a>
+                            <a href="/tags/#(tag.id)/projects" class="project-category project-category-#(tag.type)" >#(tag.name)</a>
                         }
                     </p>
                 </header>
                 
-                <div class="post-description">
+                <div class="project-description">
                     <p>#(project.subtitle)</p>
                 </div>
             </section>
