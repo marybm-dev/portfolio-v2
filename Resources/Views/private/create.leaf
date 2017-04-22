@@ -1,7 +1,7 @@
 #extend("/private/base")
 
 #export("body") {
-<div class="content">
+<div class="container content">
     <div class="row">
         <div class="u-full-width">
             <h4>Add New Project</h4>

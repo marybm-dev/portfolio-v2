@@ -1,16 +1,20 @@
-<nav class="navbar">
-    <ul class="navbar-list">
-        <li class="navbar-item">
-            <a class="navbar-link" href="/admin/projects">Projects</a>
-        </li>
-        <li class="navbar-item">
-            <a class="navbar-link" href="/admin/types">Types</a>
-        </li>
-        <li class="navbar-item">
-            <a class="navbar-link" href="/admin/tags">Tags</a>
-        </li>
-        <li class="navbar-item">
-            <a class="navbar-link" href="/">Portfolio</a>
-        </li>
-    </ul>
-</nav>
+<div class="container">
+    <div class="header">
+        <nav class="navbar" id="js-responsive-nav">
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/admin/projects">Projects</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/admin/types">Types</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/admin/tags">Tags</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/">Portfolio</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

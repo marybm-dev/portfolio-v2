@@ -49,6 +49,8 @@
             </div>
         </div>
     }
-
 </diV>
+<script>
+    lightGallery(document.getElementById('lightgallery'));
+</script>
 }
