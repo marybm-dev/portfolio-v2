@@ -17,6 +17,7 @@ final class MediaController {
     
     func create(request: Request, project: Project) throws -> ResponseRepresentable {
         guard let projectId = project.id,
+            let id = projectId.string,
             let type = request.data["type"]?.string,
             let source = request.data["source"]?.string else {
             throw Abort.badRequest
@@ -24,7 +25,7 @@ final class MediaController {
 
         var media = Media(type: type, source: source, projectId: projectId)
         try media.save()
-        return Response(redirect: "/admin/projects")
+        return Response(redirect: "/admin/projects/\(id)")
     }
     
     func delete(request: Request, media: Media) throws -> ResponseRepresentable {

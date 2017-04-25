@@ -47,8 +47,12 @@ final class ProjectController {
     }
     
     func show(request: Request, project: Project) throws -> ResponseRepresentable {
+        let tags = try Tag.all().makeNode()
+        let types = try Type.all().makeNode()
         let parameters = try Node(node: [
             "project": project.makeNode(context: ProjectContext.all),
+            "tags": tags,
+            "types": types,
             ])
         return try drop.view.make("/private/show", parameters)
     }
@@ -144,7 +148,12 @@ extension ProjectController {
     func joinTag(request: Request, project: Project, tag: Tag) throws -> ResponseRepresentable {
         var pivot = Pivot<Project, Tag>(project, tag)
         try pivot.save()
-        return try self.edit(request: request, project: project)
+        
+        guard let projectId = project.id,
+            let id = projectId.string else {
+            throw Abort.badRequest
+        }
+        return Response(redirect: "/admin/projects/\(id)")
     }
     
     func joinType(request: Request, project: Project, type: Type) throws -> ResponseRepresentable {
@@ -155,14 +164,15 @@ extension ProjectController {
     
     func deleteJoinTag(request: Request, project: Project, tag: Tag) throws -> ResponseRepresentable {
         guard let tagId = tag.id,
-            let projectId = project.id else {
+            let projectId = project.id,
+            let id = projectId.string else {
             throw Abort.badRequest
         }
         
         let pivot = try Pivot<Project, Tag>.query().filter("project_id", projectId).filter("tag_id", tagId).first()
         try pivot?.delete()
         
-        return try self.edit(request: request, project: project)
+        return Response(redirect: "/admin/projects/\(id)")
     }
     
     func deleteJoinType(request: Request, project: Project, type: Type) throws -> ResponseRepresentable {
