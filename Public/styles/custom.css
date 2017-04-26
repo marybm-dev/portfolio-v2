@@ -85,13 +85,15 @@ h3 {
         margin-top: 1rem;
         text-align: right;
     }
+    .header-admin {
+        margin-top: 5rem;
+    }
 }
 
-
-/* Larger than phone */
 @media (min-width: 550px) {
     .header {
-        margin-top: 5rem; }
+        margin-top: 5rem;
+    }
 }
 
 @media screen and (min-width: 720px) {
