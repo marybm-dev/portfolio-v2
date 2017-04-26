@@ -1,0 +1,46 @@
+<div id="media" class="tabcontent">
+    <div class="row">
+        <div class="u-full-width">
+            <h4 class="tab-header">Project Media</h4>
+        </div>
+    </div>
+
+    <div class="u-full-width">
+        <form action="/medias/project/#(project.id)" method="post">
+            <div class="row">
+                <div class="two columns">
+                    <label>Type</label>
+                    <select class="u-full-width" name="type" >
+                        <option value="image">Image</option>
+                        <option value="video">Video</option>
+                    </select>
+                </div>
+                <div class="eight columns">
+                    <label>Source</label>
+                    <input name="source" class="u-full-width" type="text" placeholder="Source"/>
+                </div>
+                <div class="two columns">
+                    <label class="empty-label"></label>
+                    <input class="td-button button-primary" type="submit" value="Add"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    
+    <div class="u-full-width">
+        <label>All media</label>
+    </div>
+    
+    
+    #loop(project.medias, "media") {
+    <div class="row">
+        <div class="one column">
+            #(media.type)
+        </div>
+        <div class="eleven columns">
+            #(media.source)
+        </div>
+    </div>
+    }
+</div>

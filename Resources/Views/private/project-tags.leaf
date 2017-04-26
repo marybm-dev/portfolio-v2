@@ -1,0 +1,54 @@
+<div id="tags" class="tabcontent">
+    <div class="row">
+        <div class="u-full-width">
+            <h4 class="tab-header">Project Tags</h4>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="six columns">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tags</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    #loop(project.tags, "tag") {
+                    <tr>
+                        <td>#(tag.name)</td>
+                        <td>
+                            <form class="td-button" action="/projects/#(project.id)/tags-delete/#(tag.id)" method="post">
+                                <input class="td-button" type="submit" value="Delete"/>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="six columns">
+            <table>
+                <thead>
+                    <tr>
+                        <th>All Tags</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    #loop(tags, "tag") {
+                    <tr>
+                        <td>#(tag.name)</td>
+                        <td>
+                            <form class="td-button" action="/projects/#(project.id)/tags/#(tag.id)" method="post">
+                                <input class="td-button button-primary" type="submit" value="Add"/>
+                            </form>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

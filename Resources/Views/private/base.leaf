@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        #import("head")
         <title>Projects</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/styles/normalize.css">
@@ -11,6 +10,7 @@
         <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="/js/site.js"></script>
+        #import("head")
     </head>
     <body>
         #embed("/private/navbar")

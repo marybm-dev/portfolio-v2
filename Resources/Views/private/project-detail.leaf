@@ -1,0 +1,57 @@
+<div id="detail" class="tabcontent">
+    <div class="row">
+        <div class="u-full-width">
+            <h4 class="tab-header">Project Detail</h4>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="six columns">
+            <label>Title</label>
+            #(project.title)
+        </div>
+        <div class="three columns">
+            <label>Type</label>
+            #(project.type)
+        </div>
+        <div class="three columns">
+            <label>Link</label>
+            #if(project.link) {
+            <a href="#(project.link)">View</a>
+            }
+        </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <label>Subtitle</label>
+        #(project.subtitle)
+    </div>
+    <br>
+    
+    <div class="row">
+        <label>Description</label>
+        #(project.description)
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="six columns">
+            <label>Image</label>
+            #if(project.image) {
+            <img src="#(project.image)" width="300" height="300"/>
+            }
+        </div>
+        <div class="six columns">
+            <label>Video</label>
+            #if(project.video) {
+            <iframe width="400" height="300" src="#(project.video)" frameborder="0" allowfullscreen></iframe>
+            }
+        </div>
+    </div>
+    <br>
+    
+    <a href="/admin/projects/#(project.id)/edit">
+        <button value="Edit">Edit</button>
+    </a>
+</div>
