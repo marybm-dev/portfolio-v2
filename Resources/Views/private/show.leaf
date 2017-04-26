@@ -13,7 +13,7 @@
     <div id="detail" class="tabcontent">
         <div class="row">
             <div class="u-full-width">
-                <h4>Project Detail</h4>
+                <h4 class="tab-header">Project Detail</h4>
             </div>
         </div>
             
@@ -73,12 +73,12 @@
     <div id="tags" class="tabcontent">
         <div class="row">
             <div class="u-full-width">
-                <h4>Project Tags</h4>
+                <h4 class="tab-header">Project Tags</h4>
             </div>
         </div>
         <!-- Tags and Types section -->
         <div class="row">
-            <div class="three columns">
+            <div class="six columns">
                 <table>
                     <thead>
                         <tr>
@@ -100,7 +100,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="three columns">
+            <div class="six columns">
                 <table>
                     <thead>
                         <tr>
@@ -122,51 +122,6 @@
                     </tbody>
                 </table>
             </div>
-            
-            <div class="three columns">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Types</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        #loop(project.types, "type") {
-                        <tr>
-                            <td>#(type.name)</td>
-                            <td>
-                                <form class="td-button" action="/projects/#(project.id)/types-delete/#(type.id)" method="post">
-                                    <input class="td-button" type="submit" value="Delete"/>
-                                </form>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <div class="three columns">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>All Types</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        #loop(types, "type") {
-                        <tr>
-                            <td>#(type.name)</td>
-                            <td>
-                                <form class="td-button" action="/projects/#(project.id)/types/#(type.id)" method="post">
-                                    <input class="td-button button-primary" type="submit" value="Add"/>
-                                </form>
-                            </td>
-                        </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
     
@@ -175,7 +130,7 @@
     <div id="media" class="tabcontent">
         <div class="row">
             <div class="u-full-width">
-                <h4>Project Media</h4>
+                <h4 class="tab-header">Project Media</h4>
             </div>
         </div>
         <!-- Media section -->
@@ -189,31 +144,34 @@
                             <option value="video">Video</option>
                         </select>
                     </div>
-                    <div class="ten columns">
+                    <div class="eight columns">
                         <label>Source</label>
                         <input name="source" class="u-full-width" type="text" placeholder="Source"/>
                     </div>
+                    <div class="two columns">
+                        <label class="empty-label"></label>
+                        <input class="td-button button-primary" type="submit" value="Add"/>
+                    </div>
                 </div>
-                <input class="td-button button-primary" type="submit" value="Add"/>
             </form>
         </div>
         
-        <table>
-            <thead>
-                <tr>
-                    <th>All Medias</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                #loop(project.medias, "media") {
-                <tr>
-                    <td>#(media.type)</td>
-                    <td>#(media.source)</td>
-                </tr>
-                }
-            </tbody>
-        </table>
+        
+        <div class="u-full-width">
+            <label>All media</label>
+        </div>
+        
+        
+        #loop(project.medias, "media") {
+            <div class="row">
+                <div class="one column">
+                    #(media.type)
+                </div>
+                <div class="eleven columns">
+                    #(media.source)
+                </div>
+            </div>
+        }
     </div>
 </div>
     
