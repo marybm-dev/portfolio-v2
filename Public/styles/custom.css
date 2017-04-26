@@ -96,12 +96,12 @@ h3 {
     }
 }
 
-@media screen and (min-width: 720px) {
+@media (min-width: 720px) {
     .header {
         top: auto;
     }
 }
-@media screen and (min-width: 300px) and (max-width: 720px) {
+@media (min-width: 300px) and (max-width: 720px) {
     .header {
         padding-top: .5em;
         border-bottom: 1px solid #eee;
@@ -112,7 +112,7 @@ h3 {
 .brand-tagline {
     margin: 0;
 }
-@media screen and (min-width: 300px) and (max-width: 720px) {
+@media (min-width: 300px) and (max-width: 720px) {
     .brand-tagline {
         display: none;
     }
@@ -125,3 +125,34 @@ h3 {
     color: rgb(176, 202, 219);
 }
 
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab-button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}

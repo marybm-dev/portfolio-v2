@@ -3,14 +3,14 @@
 #export("body") {
 <div class="container content">
     
-    <div class="project-tab">
-        <button class="project-tablinks" onclick="openTab(event, 'detail')" id="defaultOpen">Detail</button>
-        <button class="project-tablinks" onclick="openTab(event, 'tags')">Tags</button>
-        <button class="project-tablinks" onclick="openTab(event, 'media')">Media</button>
+    <div class="tab">
+        <button class="tab-button tablinks" onclick="openTab(event, 'detail')" id="defaultOpen">Detail</button>
+        <button class="tab-button tablinks" onclick="openTab(event, 'tags')">Tags</button>
+        <button class="tab-button tablinks" onclick="openTab(event, 'media')">Media</button>
     </div>
     
     <!-- Detail Tab -->
-    <div id="detail" class="project-tabcontent">
+    <div id="detail" class="tabcontent">
         <div class="row">
             <div class="u-full-width">
                 <h4>Project Detail</h4>
@@ -70,7 +70,7 @@
     
     
     <!-- Tags Tab -->
-    <div id="tags" class="project-tabcontent">
+    <div id="tags" class="tabcontent">
         <div class="row">
             <div class="u-full-width">
                 <h4>Project Tags</h4>
@@ -172,7 +172,7 @@
     
     
     <!-- Media Tab -->
-    <div id="media" class="project-tabcontent">
+    <div id="media" class="tabcontent">
         <div class="row">
             <div class="u-full-width">
                 <h4>Project Media</h4>
@@ -220,11 +220,11 @@
 <script>
     function openTab(evt, tabName) {
         var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("project-tabcontent");
+        tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
-        tablinks = document.getElementsByClassName("project-tablinks");
+        tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
