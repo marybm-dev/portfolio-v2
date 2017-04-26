@@ -1,7 +1,7 @@
 #extend("/private/base")
 
 #export("head") {
-    <script src="/js/admin.js"></script>
+    <script src="/js/show.js"></script>
 }
 
 #export("body") {
