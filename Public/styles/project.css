@@ -108,3 +108,8 @@
 .projects {
     margin-bottom: 75px;
 }
+
+.project-app-store {
+    margin-top: 0.5em;
+    float: right;
+}

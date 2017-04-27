@@ -4,18 +4,22 @@
 <div class="container content">
     <div class="row">
         <div class="u-full-width">
-            #if(project.link) {
-                <a href="#(project.link)">
-                    #if(project.image) {
-                    <img src="#(project.image)" class="project-image"/>
-                    }
-                </a>
+            #if(project.image) {
+            <img src="#(project.image)" class="project-image"/>
+            }
+            
+            #if(project.store) {
+            <span><a href="#(project.store)" class="project-app-store">
+                <img src="/images/iTunesStore.svg" />
+            </a></span>
             }
             
             <h4 class="project-title">#(project.title)</h4>
             #loop(project.tags, "tag") {
                 <a href="/tags/#(tag.id)/projects" class="project-category project-category-#(tag.type)" >#(tag.name)</a>
             }
+            
+            
         </div>
     </div>
     
