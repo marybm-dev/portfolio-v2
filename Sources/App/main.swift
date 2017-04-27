@@ -13,10 +13,8 @@ try drop.addProvider(VaporPostgreSQL.Provider)
 drop.preparations += Project.self
 drop.preparations += User.self
 drop.preparations += Tag.self
-drop.preparations += Type.self
 drop.preparations += Media.self
 drop.preparations += Pivot<Project, Tag>.self
-drop.preparations += Pivot<Project, Type>.self
 
 drop.middleware += AuthMiddleware<User>()
 drop.middleware += TrustProxyMiddleware()
@@ -28,9 +26,6 @@ projectController.addRoutes(drop: drop)
 
 let tagController = TagController()
 tagController.addRoutes(drop: drop)
-
-let typeController = TypeController()
-typeController.addRoutes(drop: drop)
 
 let mediaController = MediaController()
 mediaController.addRoutes(drop: drop)
@@ -65,12 +60,7 @@ drop.group("admin") { admin in
         tags.get(handler: tagController.index)
         tags.post(handler: tagController.create)
         tags.post(Tag.self, handler: tagController.delete)
-        
-        let types = secured.grouped("types")
-        types.get(handler: typeController.index)
-        types.post(handler: typeController.create)
-        types.post(Type.self, handler: typeController.delete)
-        
+
         let projects = secured.grouped("projects")
         projects.get(handler: projectController.index)
         projects.get("new", handler: projectController.new)

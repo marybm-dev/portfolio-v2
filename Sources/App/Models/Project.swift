@@ -63,11 +63,6 @@ final class Project: Model {
                 node["tags"] = try allTags.makeNode()
             }
             
-            let allTypes = try types()
-            if allTypes.count > 0 {
-                node["types"] = try allTypes.makeNode()
-            }
-            
             let allMedias = try medias()
             if allMedias.count > 0 {
                 node["medias"] = try allMedias.makeNode()
@@ -102,11 +97,6 @@ extension Project {
     func tags() throws -> [Tag] {
         let tags: Siblings<Tag> = try siblings()
         return try tags.all()
-    }
-    
-    func types() throws -> [Type] {
-        let types: Siblings<Type> = try siblings()
-        return try types.all()
     }
     
     func medias() throws -> [Media] {

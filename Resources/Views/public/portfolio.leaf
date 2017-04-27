@@ -14,11 +14,6 @@
                         </div>
                     }
                     
-                    <!-- comment out so I don't get sued
-                    #loop(project.types, "type") {
-                        <img class="project-type" title="#(type.name)" src="/images/#(type.name).png">
-                    } -->
-                    
                     <a href="/#(project.id)">
                         <h4 class="project-title">#(project.title)</h4>
                     </a>

@@ -14,10 +14,8 @@ final class ProjectController {
         // admin routes
         let basic = drop.grouped("projects")
         basic.post(Project.self, "tags", Tag.self, handler: joinTag)
-        basic.post(Project.self, "types", Type.self, handler: joinType)
         basic.get(Project.self, "tags", handler: tagsIndex)
         basic.post(Project.self, "tags-delete", Tag.self, handler: deleteJoinTag)
-        basic.post(Project.self, "types-delete", Type.self, handler: deleteJoinType)
     }
     
     func index(request: Request) throws -> ResponseRepresentable {
@@ -48,22 +46,18 @@ final class ProjectController {
     
     func show(request: Request, project: Project) throws -> ResponseRepresentable {
         let tags = try Tag.all().makeNode()
-        let types = try Type.all().makeNode()
         let parameters = try Node(node: [
             "project": project.makeNode(context: ProjectContext.all),
             "tags": tags,
-            "types": types,
             ])
         return try drop.view.make("/private/show", parameters)
     }
     
     func edit(request: Request, project: Project) throws -> ResponseRepresentable {
         let tags = try Tag.all().makeNode()
-        let types = try Type.all().makeNode()
         let parameters = try Node(node: [
             "project": project.makeNode(context: ProjectContext.all),
             "tags": tags,
-            "types": types,
             ])
         
         return try drop.view.make("/private/edit", parameters)
@@ -156,12 +150,6 @@ extension ProjectController {
         return Response(redirect: "/admin/projects/\(id)")
     }
     
-    func joinType(request: Request, project: Project, type: Type) throws -> ResponseRepresentable {
-        var pivot = Pivot<Project, Type>(project, type)
-        try pivot.save()
-        return try self.edit(request: request, project: project)
-    }
-    
     func deleteJoinTag(request: Request, project: Project, tag: Tag) throws -> ResponseRepresentable {
         guard let tagId = tag.id,
             let projectId = project.id,
@@ -173,18 +161,6 @@ extension ProjectController {
         try pivot?.delete()
         
         return Response(redirect: "/admin/projects/\(id)")
-    }
-    
-    func deleteJoinType(request: Request, project: Project, type: Type) throws -> ResponseRepresentable {
-        guard let typeId = type.id,
-            let projectId = project.id else {
-                throw Abort.badRequest
-        }
-        
-        let pivot = try Pivot<Project, Type>.query().filter("project_id", projectId).filter("type_id", typeId).first()
-        try pivot?.delete()
-        
-        return try self.edit(request: request, project: project)
     }
     
     func tagsIndex(request: Request, project: Project) throws -> ResponseRepresentable {
