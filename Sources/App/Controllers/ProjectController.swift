@@ -11,7 +11,7 @@ final class ProjectController {
         drop.get(String.self, handler: filteredProjects)
         drop.get(Project.self, handler: project)
 
-        // api routes
+        // admin routes
         let basic = drop.grouped("projects")
         basic.post(Project.self, "tags", Tag.self, handler: joinTag)
         basic.post(Project.self, "types", Type.self, handler: joinType)
@@ -32,15 +32,15 @@ final class ProjectController {
         guard let title = request.data["title"]?.string,
             let subtitle = request.data["subtitle"]?.string,
             let description = request.data["description"]?.string,
-            let type = request.data["type"]?.string else {
+            let type = request.data["type"]?.string,
+            let store = request.data["store"]?.string else {
                 throw Abort.badRequest
         }
         
         let image = request.data["image"]?.string
-        let video = request.data["video"]?.string
         let link = request.data["link"]?.string
         
-        var project = Project(title: title, subtitle: subtitle, description: description, type: type, image: image, video: video, link: link)
+        var project = Project(title: title, subtitle: subtitle, description: description, type: type, image: image, store: store, link: link)
         try project.save()
         
         return try allProjects()
@@ -75,12 +75,12 @@ final class ProjectController {
             let subtitle = request.data["subtitle"]?.string,
             let description = request.data["description"]?.string,
             let type = request.data["type"]?.string,
+            let store = request.data["store"]?.string,
             var project = try Project.query().filter("id", projectId).first() else {
-            throw Abort.badRequest
+                throw Abort.badRequest
         }
         
         let image = request.data["image"]?.string
-        let video = request.data["video"]?.string
         let link = request.data["link"]?.string
         
         project.title = title
@@ -88,7 +88,7 @@ final class ProjectController {
         project.description = description
         project.type = type
         project.image = image
-        project.video = video
+        project.store = store
         project.link = link
         try project.save()
         
@@ -142,7 +142,7 @@ extension ProjectController {
 }
 
 
-// API Routes {
+// Admin Routes {
 extension ProjectController {
     
     func joinTag(request: Request, project: Project, tag: Tag) throws -> ResponseRepresentable {

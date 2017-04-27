@@ -39,8 +39,8 @@
         </div>
         
         <div class="u-full-width">
-            <label>Video</label>
-            <input name="video" class="u-full-width" type="text" value="#(project.video)"/>
+            <label>Store</label>
+            <input name="store" class="u-full-width" type="text" value="#(project.store)"/>
         </div>
         
         <div class="u-full-width">

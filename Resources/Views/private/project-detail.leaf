@@ -43,9 +43,9 @@
             }
         </div>
         <div class="six columns">
-            <label>Video</label>
-            #if(project.video) {
-            <iframe width="400" height="300" src="#(project.video)" frameborder="0" allowfullscreen></iframe>
+            <label>App Store</label>
+            #if(project.store) {
+            <!-- TODO: Add the iOS App Store SVG and display it here -->
             }
         </div>
     </div>

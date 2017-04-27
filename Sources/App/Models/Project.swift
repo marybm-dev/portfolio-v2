@@ -12,17 +12,17 @@ final class Project: Model {
     var description: String
     var type: String
     var image: String?
-    var video: String?
+    var store: String?
     var link: String?
     
-    init(title: String, subtitle: String, description: String, type: String, image: String?, video: String?, link: String?) {
+    init(title: String, subtitle: String, description: String, type: String, image: String?, store: String?, link: String?) {
         self.id = nil
         self.title = title
         self.subtitle = subtitle
         self.description = description
         self.type = type
         self.image = image
-        self.video = video
+        self.store = store
         self.link = link
     }
     
@@ -33,7 +33,7 @@ final class Project: Model {
         description = try node.extract("description")
         type = try node.extract("type")
         image = try node.extract("image")
-        video = try node.extract("video")
+        store = try node.extract("store")
         link = try node.extract("link")
     }
     
@@ -49,11 +49,11 @@ final class Project: Model {
         if let image = image {
             node["image"] = image.makeNode()
         }
-        if let video = video {
-            node["video"] = video.makeNode()
-        }
         if let link = link {
             node["link"] = link.makeNode()
+        }
+        if let store = store {
+            node["store"] = store.makeNode()
         }
         
         switch context {
@@ -88,8 +88,8 @@ final class Project: Model {
             projects.custom("description", type: "TEXT")
             projects.string("type")
             projects.string("image", optional: true)
-            projects.string("video", optional: true)
             projects.string("link", optional: true)
+            projects.string("store", optional: true)
         }
     }
     
@@ -116,8 +116,4 @@ extension Project {
 
 public enum ProjectContext: Context {
     case all
-}
-
-enum TechSkills: String {
-    case BasicAuthentication, oAuthentication, REST, Persistence, Routes, Templating, HTTPRequests
 }

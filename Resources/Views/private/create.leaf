@@ -39,8 +39,8 @@
         </div>
         
         <div class="row">
-            <label>Video</label>
-            <input name="video" class="u-full-width" type="text" placeholder="Video URL"/>
+            <label>Store</label>
+            <input name="store" class="u-full-width" type="text" placeholder="App Store URL"/>
         </div>
 
         <div class="row">

@@ -57,11 +57,9 @@
                     }
             </div>
             <div class="one columns">
-                #if(project.video) {
-                    <span><iframe width="75" height="50" src="#(project.video)" frameborder="0" allowfullscreen></iframe></span>
-                    } ##else() {
-                    <p></p>
-                    }
+                #if(project.store) {
+                <!-- TODO: Add the iOS App Store SVG and display it here -->
+                }
             </div>
             <div class="one column">
                 #if(project.link) {
