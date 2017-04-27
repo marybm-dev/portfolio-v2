@@ -13,9 +13,9 @@
             }
             
             #if(project.store) {
-            <span><a href="#(project.store)" class="project-app-store">
+            <a href="#(project.store)" class="project-app-store">
                 <img src="/images/iTunesStore.svg" />
-            </a></span>
+            </a>
             }
             
             <h4 class="project-title">#(project.title)</h4>
