@@ -58,7 +58,7 @@
             </div>
             <div class="one columns">
                 #if(project.store) {
-                <!-- TODO: Add the iOS App Store SVG and display it here -->
+                <a href="#(project.store)">iTunes</a>
                 }
             </div>
             <div class="one column">

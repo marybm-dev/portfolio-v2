@@ -45,7 +45,9 @@
         <div class="six columns">
             <label>App Store</label>
             #if(project.store) {
-            <!-- TODO: Add the iOS App Store SVG and display it here -->
+                <a href="#(project.store)">
+                    <img src="/images/iTunesStore.svg" />
+                </a>
             }
         </div>
     </div>
