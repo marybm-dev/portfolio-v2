@@ -1,5 +1,9 @@
 #extend("/public/base")
 
+#export("head") {
+    <script src="/js/project.js"></script>
+}
+
 #export("body") {
 <div class="container content">
     <div class="row">
@@ -18,8 +22,6 @@
             #loop(project.tags, "tag") {
                 <a href="/tags/#(tag.id)/projects" class="project-category project-category-#(tag.type)" >#(tag.name)</a>
             }
-            
-            
         </div>
     </div>
     
@@ -54,7 +56,4 @@
         </div>
     }
 </diV>
-<script>
-    lightGallery(document.getElementById('lightgallery'));
-</script>
 }
