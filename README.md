@@ -12,6 +12,8 @@ This is a vapor web app that I built to demonstrate some projects I've worked on
 * Footer to include means of contact
 * Distinctive navbars for appropriate places in the app. e.g. Admin (logged in vs. logged out) and Public facing.
 
+#### Note: This app uses [sachinchoolur's lightgallery.js](https://github.com/sachinchoolur/lightgallery.js) and requires a license.
+
 ## Installation
 
 Make sure you've got Swift 3, [Vapor](https://github.com/vapor/vapor), and any dependencies installed first. 
