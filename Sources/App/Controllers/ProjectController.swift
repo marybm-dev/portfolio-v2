@@ -70,11 +70,11 @@ final class ProjectController {
             let subtitle = request.data["subtitle"]?.string,
             let description = request.data["description"]?.string,
             let type = request.data["type"]?.string,
-            let store = request.data["store"]?.string,
             var project = try Project.query().filter("id", projectId).first() else {
                 throw Abort.badRequest
         }
         
+        let store = request.data["store"]?.string
         let image = request.data["image"]?.string
         let link = request.data["link"]?.string
         
