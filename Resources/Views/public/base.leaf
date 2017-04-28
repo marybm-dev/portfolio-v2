@@ -16,6 +16,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="/js/site.js"></script>
         <script src="/js/lightgallery.min.js"></script>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         #import("head")
     </head>
     <body>
