@@ -90,6 +90,7 @@
 }
 .project-image-thumb {
     border-radius: 10px;
+    min-height: 65px;
 }
 .project-image-thumb-wrapper {
     float: left;

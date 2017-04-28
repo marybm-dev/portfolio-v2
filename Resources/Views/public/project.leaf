@@ -27,13 +27,13 @@
     
     <div class="cont">
         <div class="demo-gallery">
-            <ul id="lightgallery">
+            <ul id="lightgallery" class="img-gallery">
                 #loop(medias, "media") {
                     #equal(#(media.type), image) {
                     <li data-src="#(media.source)">
                         <a href="">
                             <img class="img-responsive" src="#(media.source)">
-                                </a>
+                        </a>
                     </li>
                     }
                 }
@@ -44,7 +44,7 @@
     
     <div class="row">
         <div class="u-full-width">
-            #(project.description)
+            <p><pre>#(project.description)</pre></p>
         </div>
     <br>
 

@@ -168,3 +168,7 @@ h3 {
 .login-logout {
     margin-bottom: 0;
 }
+
+pre {
+    font-family: inherit;
+}
