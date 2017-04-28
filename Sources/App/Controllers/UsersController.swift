@@ -20,7 +20,7 @@ final class UsersController {
     func register(request: Request) throws -> ResponseRepresentable {
         
         if try User.all().first != nil {
-            throw Abort.custom(status: Status.badRequest, message: "Only one Admin allowed!\nwho you? 👾")
+            throw Abort.custom(status: Status.badRequest, message: "Only one Admin allowed! who you? 👾")
         }
         
         // Get our credentials
