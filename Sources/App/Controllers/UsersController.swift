@@ -19,6 +19,10 @@ final class UsersController {
     
     func register(request: Request) throws -> ResponseRepresentable {
         
+        if try User.all().first != nil {
+            throw Abort.custom(status: Status.badRequest, message: "Only one Admin allowed!\nwho you? 👾")
+        }
+        
         // Get our credentials
         guard let username = request.data["username"]?.string,
             let password = request.data["password"]?.string else {
@@ -41,7 +45,7 @@ final class UsersController {
         do {
             try _ = User.register(credentials: credentials, parameters: parameters)
             try request.auth.login(credentials)
-            return try JSON(node: ["success": true, "user": request.user().makeNode()])
+            return try drop.view.make("login")
             
         } catch let e as TurnstileError {
             throw Abort.custom(status: Status.badRequest, message: e.description)

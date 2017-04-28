@@ -45,12 +45,15 @@ drop.group("admin") { admin in
     // Authentication
     let usersController = UsersController()
     admin.get(handler: usersController.admin)
+    admin.get("register") { request in
+        return try drop.view.make("register")
+    }
     admin.post("register", handler: usersController.register)
     admin.post("login", handler: usersController.login)
-    admin.post("logout", handler: usersController.logout)
     admin.get("login") { request in
         return  try drop.view.make("login")
     }
+    admin.post("logout", handler: usersController.logout)
     
     // Secured Endpoints
     let protect = ProtectMiddleware(error: Abort.custom(status: .unauthorized, message: "Unauthorized"))

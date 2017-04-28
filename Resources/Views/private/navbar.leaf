@@ -1,5 +1,8 @@
 <div class="container">
     <div class="header header-admin">
+        <h2 class="brand-title">Mary Martinez</h2>
+        <h4 class="brand-tagline">Software Engineer</h4>
+        
         <nav class="navbar" id="js-responsive-nav">
             <ul class="navbar-list">
                 <li class="navbar-item">
