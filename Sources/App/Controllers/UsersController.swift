@@ -75,7 +75,15 @@ final class UsersController {
     
     func logout(request: Request) throws -> ResponseRepresentable {
         request.subject.logout()
-        return try JSON(node: ["success": true])
+        
+        do {
+            try request.session().destroy()
+            
+        } catch _ {
+            throw Abort.custom(status: Status.badRequest, message: "Uh oh.. couldn't destroy the session")
+        }
+        
+        return try drop.view.make("login")
     }
     
     // MARK: Custom Endpoints
@@ -83,6 +91,9 @@ final class UsersController {
         return try JSON(node: request.user().makeNode())
     }
     
+    func admin(request: Request)  throws -> ResponseRepresentable {
+        return try drop.view.make("admin")
+    }
 }
 
 extension Request {

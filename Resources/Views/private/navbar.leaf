@@ -11,6 +11,12 @@
                 <li class="navbar-item">
                     <a class="navbar-link" href="/">Portfolio</a>
                 </li>
+                
+                <form id="logout" class="login-logout" action="/admin/logout" method="post">
+                    <li class="navbar-item navbar-item-right">
+                        <a href="javascript:{}" class="navbar-link" onclick="document.getElementById('logout').submit(); return false;">Logout</a>
+                    </li>
+                </form>
             </ul>
         </nav>
     </div>

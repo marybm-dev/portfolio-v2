@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="header header-admin">
+        <nav class="navbar" id="js-responsive-nav">
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/">Portfolio</a>
+                </li>
+
+                <li class="navbar-item navbar-item-right">
+                    <a class="navbar-link navbar-link-right" href="/admin/login">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

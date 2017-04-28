@@ -1,4 +1,4 @@
-#extend("/private/base")
+#extend("admin")
 
 #export("body") {
     <div class="container content">

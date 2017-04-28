@@ -164,3 +164,7 @@ h3 {
 .empty-label {
     height: 24px;
 }
+
+.login-logout {
+    margin-bottom: 0;
+}

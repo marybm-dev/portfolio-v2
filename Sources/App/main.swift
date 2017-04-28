@@ -44,11 +44,12 @@ drop.get("web") { request in
 drop.group("admin") { admin in
     // Authentication
     let usersController = UsersController()
+    admin.get(handler: usersController.admin)
     admin.post("register", handler: usersController.register)
     admin.post("login", handler: usersController.login)
     admin.post("logout", handler: usersController.logout)
     admin.get("login") { request in
-        return  try drop.view.make("/private/login")
+        return  try drop.view.make("login")
     }
     
     // Secured Endpoints

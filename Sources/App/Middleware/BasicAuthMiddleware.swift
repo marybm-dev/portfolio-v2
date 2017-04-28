@@ -26,18 +26,6 @@ class BasicAuthMiddleware: Middleware {
             try? request.auth.login(api_Key, persist: true)
             
         }
-//        
-//        
-//        if let header = request.auth.header {
-//            let components = header.header.components(separatedBy: ":")
-//            if components.count == 2 {
-//                let id = components[0]
-//                let secret = components[1]
-//                let api_Key = APIKey(id: id, secret: secret)
-//                try? request.auth.login(api_Key, persist: true)
-//            }
-//        }
-
         return try next.respond(to: request)
     }
 }
