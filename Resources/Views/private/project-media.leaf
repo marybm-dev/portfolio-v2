@@ -38,8 +38,13 @@
         <div class="one column">
             #(media.type)
         </div>
-        <div class="eleven columns">
+        <div class="nine columns">
             #(media.source)
+        </div>
+        <div class="one column">
+            <form class="td-button" action="/projects/#(project.id)/media-delete/#(media.id)" method="post">
+                <input class="td-button" type="submit" value="Delete"/>
+            </form>
         </div>
     </div>
     }

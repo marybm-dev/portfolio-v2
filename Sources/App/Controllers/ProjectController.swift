@@ -16,6 +16,7 @@ final class ProjectController {
         basic.post(Project.self, "tags", Tag.self, handler: joinTag)
         basic.get(Project.self, "tags", handler: tagsIndex)
         basic.post(Project.self, "tags-delete", Tag.self, handler: deleteJoinTag)
+        basic.post(Project.self, "media-delete", Media.self, handler: deleteMedia)
     }
     
     func index(request: Request) throws -> ResponseRepresentable {
@@ -167,5 +168,17 @@ extension ProjectController {
         let tags = try project.tags()
         return try JSON(node: tags.makeNode())
     }
-
+    
+    func deleteMedia(request: Request, project: Project, media: Media) throws -> ResponseRepresentable {
+        guard let mediaId = media.id,
+            let projectId = project.id,
+            let id = projectId.string else {
+                throw Abort.badRequest
+        }
+        
+        let media = try Media.query().filter("id", mediaId).first()
+        try media?.delete()
+        
+        return Response(redirect: "/admin/projects/\(id)")
+    }
 }
