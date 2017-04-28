@@ -30,11 +30,11 @@ final class ProjectController {
         guard let title = request.data["title"]?.string,
             let subtitle = request.data["subtitle"]?.string,
             let description = request.data["description"]?.string,
-            let type = request.data["type"]?.string,
-            let store = request.data["store"]?.string else {
+            let type = request.data["type"]?.string else {
                 throw Abort.badRequest
         }
         
+        let store = request.data["store"]?.string
         let image = request.data["image"]?.string
         let link = request.data["link"]?.string
         
