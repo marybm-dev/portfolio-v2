@@ -171,4 +171,5 @@ h3 {
 
 pre {
     font-family: inherit;
+    white-space: pre-wrap;
 }
