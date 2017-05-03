@@ -18,7 +18,9 @@ This is a vapor web app that I built to demonstrate some projects I've worked on
 
 Make sure you've got Swift 3, [Vapor](https://github.com/vapor/vapor), and any dependencies installed first. 
 
-You can install this by cloning the repo. `git clone https://github.com/mlmc03/portfolio-v2/`
+You can install this by cloning the repo.
+
+`git clone https://github.com/mlmc03/portfolio-v2/`
 
 ### PostgreSQL
 
